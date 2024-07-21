@@ -1,0 +1,22 @@
+{
+   "buyHomeWithoutBank": "Buy a home without the bank",
+   "getStarted": "Get started",
+   "signIn": "Sign in",
+   "checkCountryAvailability": "Check country availability",
+   "propertyType": "What kind of property are you looking for?",
+   "propertyTypes": {
+      "shortToMediumTermStay": {
+         "title": "Short to medium term stay",
+         "description": "Ideal for digital nomads or expats needing temporary housing."
+      },
+      "longerTermResidentialHouse": {
+         "title": "A longer term residential house",
+         "description": "Suitable for families or those looking for a permanent home."
+      },
+      "commercialProperty": {
+         "title": "Commercial property",
+         "description": "Perfect for buying office buildings or retail spaces for business."
+      }
+   },
+   "chooseLocation": "Choose location"
+}

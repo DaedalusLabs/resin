@@ -1,0 +1,23 @@
+{
+   "buyHomeWithoutBank": "Huis kopen zonder bank",
+   "getStarted": "Aan de slag",
+   "signIn": "Inloggen",
+   "checkCountryAvailability": "Controleer beschikbaarheid per land",
+   "propertyType": "Naar wat voor soort woning bent u op zoek?",
+   "propertyTypes": {
+      "shortToMediumTermStay": {
+         "title": "Kort tot middellang verblijf",
+         "description": "Ideaal voor digital nomads of expats die tijdelijke woonruimte nodig hebben."
+      },
+      "longerTermResidentialHouse": {
+         "title": "Een langetermijn woonhuis",
+         "description": "Geschikt voor gezinnen of mensen die op zoek zijn naar een permanente woning."
+      },
+      "commercialProperty": {
+         "title": "Bedrijfspand",
+         "description": "Perfect voor het kopen van kantoorgebouwen of winkelruimtes voor uw bedrijf."
+      }
+   },
+   "chooseLocation": "Kies locatie",
+   "skip": "Overslaan"
+}

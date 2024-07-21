@@ -1,0 +1,34 @@
+<template>
+   <div
+      class="flex min-h-screen flex-col bg-pirate-950 bg-hex-dark bg-cover bg-center"
+   >
+      <header />
+      <main class="flex-1">
+         <slot />
+      </main>
+      <footer />
+   </div>
+</template>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+::-moz-selection {
+   /* Code for Firefox */
+   color: white;
+   background: #f07e19;
+}
+
+::selection {
+   color: white;
+   background: #f07e19;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+* {
+   font-family: "Inter", sans-serif;
+}
+</style>
