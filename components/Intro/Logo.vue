@@ -14,8 +14,6 @@ const { locale } = useI18n();
 const logo = ref(null);
 const router = useRouter();
 
-console.log(locale.value);
-
 onMounted(() => {
    setTimeout(() => {
       router.push({ path: `/${locale.value}/introduction` });

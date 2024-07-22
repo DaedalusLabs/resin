@@ -67,6 +67,5 @@ const addPropertyType = (propertyTypeId) => {
    } else {
       selectedPropertyTypes.value.push(propertyTypeId);
    }
-   console.log(selectedPropertyTypes.value);
 };
 </script>
