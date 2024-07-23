@@ -16,11 +16,9 @@
          />
       </div>
       <div class="flex flex-col items-center justify-center gap-2">
-         <FlowbiteButton
-            v-if="selectedPropertyTypes.length > 0"
-            class="mt-10"
-            :text="$t('chooseLocation')"
-         />
+         <NuxtLink v-if="selectedPropertyTypes.length > 0" to="listview">
+            <FlowbiteButton class="mt-10" :text="$t('chooseLocation')" />
+         </NuxtLink>
          <FlowbiteDisabledButton
             v-else
             class="mt-10"

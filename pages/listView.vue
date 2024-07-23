@@ -3,6 +3,8 @@
       <div
          class="mx-auto flex w-11/12 flex-col items-center justify-center gap-8"
       >
+         <TopBar class="mt-10" />
+
          <PropertyCard
             v-for="property in properties"
             :key="property.id"

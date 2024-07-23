@@ -18,5 +18,6 @@
          "description": "Perfect for buying office buildings or retail spaces for business."
       }
    },
-   "chooseLocation": "Choose location"
+   "chooseLocation": "Choose location",
+   "skip": "Skip"
 }

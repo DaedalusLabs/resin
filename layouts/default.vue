@@ -3,12 +3,23 @@
       class="flex min-h-screen flex-col bg-pirate-950 bg-hex-dark bg-cover bg-center"
    >
       <header />
-      <main class="flex-1">
+      <main class="flex-1 pb-10" :class="{ 'pb-20': showBottomBar }">
          <slot />
       </main>
-      <footer />
+      <BottomBar v-if="showBottomBar" />
    </div>
 </template>
+
+<script setup>
+const route = useRoute();
+
+console.log(route.name);
+
+const showBottomBar =
+   !route.name.includes("introduction") &&
+   !route.name.includes("index") &&
+   !route.name.includes("choosepropertyType");
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");

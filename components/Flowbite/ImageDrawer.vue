@@ -63,7 +63,6 @@ watch(
    >
       <div
          class="sticky top-0 z-50 cursor-pointer bg-white p-4 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700"
-         data-drawer-toggle="drawer-swipe"
          @click="emit('close')"
       >
          <span
