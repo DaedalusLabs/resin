@@ -5,7 +5,9 @@
    >
       <div class="flex flex-col items-center justify-center">
          <NuxtImg src="images/logos/nostr.webp" alt="Nostr" class="h-12 w-12" />
-         <p class="ml-4 text-lg font-bold text-pirate-700">Fetching Nostr...</p>
+         <p class="ml-4 text-lg font-bold text-pirate-700">
+            {{ $t("fetching") }}
+         </p>
       </div>
    </div>
 </template>

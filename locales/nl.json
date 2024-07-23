@@ -19,5 +19,6 @@
       }
    },
    "chooseLocation": "Kies locatie",
-   "skip": "Overslaan"
+   "skip": "Overslaan",
+   "fetching": "Nostr gegevens ophalen..."
 }

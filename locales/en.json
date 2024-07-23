@@ -19,5 +19,6 @@
       }
    },
    "chooseLocation": "Choose location",
-   "skip": "Skip"
+   "skip": "Skip",
+   "fetching": "Fetching Nostr..."
 }
