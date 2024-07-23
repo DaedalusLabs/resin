@@ -50,9 +50,6 @@ import {
 
 const route = useRoute();
 
-console.log(route.name);
-
-// when on listview route, highlight the search icon
 const isListView = route.name.includes("listView");
 const isHomeView = route.name.includes("home");
 const isResinView = route.name.includes("resin");

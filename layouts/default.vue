@@ -13,8 +13,6 @@
 <script setup>
 const route = useRoute();
 
-console.log(route.name);
-
 const showBottomBar =
    !route.name.includes("introduction") &&
    !route.name.includes("index") &&
