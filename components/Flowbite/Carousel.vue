@@ -1,16 +1,16 @@
 <template>
    <div id="animation-carousel" class="relative w-full" data-carousel="static">
       <!-- Carousel wrapper -->
-      <div class="relative h-full overflow-hidden rounded-lg md:h-96">
+      <div class="relative h-full overflow-hidden md:h-72 lg:h-96">
          <div
             v-for="(item, index) in items"
             :key="index"
             :class="['duration-200 ease-linear', { hidden: index !== 0 }]"
             :data-carousel-item="index === 0 ? 'active' : ''"
          >
-            <img
+            <NuxtImg
                :src="item"
-               class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
+               class="absolute left-1/2 top-1/2 block h-full w-full -translate-x-1/2 -translate-y-1/2 object-cover"
                alt="..."
             />
          </div>
@@ -70,6 +70,7 @@
       </button>
    </div>
 </template>
+
 <script setup>
 import { useFlowbite } from "~/composables/useFlowbite";
 

@@ -3,7 +3,7 @@
       <div class="relative">
          <FlowbiteCarousel
             :items="imageUrls"
-            class="z-0 h-48 w-full object-cover"
+            class="z-0 h-48 w-full object-cover md:h-72 lg:h-96"
          />
          <button
             class="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white shadow-md hover:border-resin-500"
