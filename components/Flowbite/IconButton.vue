@@ -1,7 +1,7 @@
 <template>
    <button
       type="button"
-      class="focus:ring-primary-500 inline-flex items-center rounded-2xl bg-black p-4 text-center text-sm font-medium text-pirate-50 hover:bg-white hover:text-black focus:outline-none focus:ring-4 focus:ring-opacity-50"
+      class="focus:ring-primary-500 inline-flex items-center rounded-2xl bg-black p-4 text-center text-sm font-medium text-pirate-50 hover:bg-white hover:text-black focus:outline-none focus:ring-4 focus:ring-pirate-500 focus:ring-opacity-50"
    >
       <svg
          v-if="icon === 'filter'"
