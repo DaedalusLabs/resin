@@ -1,11 +1,11 @@
 <template>
    <section
-      class="flex h-screen flex-col items-center justify-between px-12 py-20"
+      class="flex h-full flex-col items-center justify-between px-12 py-20"
    >
       <NuxtImg
-         src="/images/logos/resin-text.webp"
+         src="/images/logos/resin-white.svg"
          alt="Logo"
-         class="md:w-1/10 mx-auto w-1/2"
+         class="max-h-20 max-w-96"
       />
       <div class="flex flex-col items-center justify-center gap-6">
          <h1
