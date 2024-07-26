@@ -6,3 +6,9 @@
       />
    </div>
 </template>
+
+<script setup>
+definePageMeta({
+   layout: "intro",
+});
+</script>

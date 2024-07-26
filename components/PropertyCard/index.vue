@@ -15,7 +15,13 @@
       <div class="flex flex-col gap-2 p-4">
          <div class="flex items-center justify-between">
             <h3 class="text-lg font-bold text-resin-500">{{ address }}</h3>
-            <PhHeartStraight :size="21" class="text-pirate-200" />
+            <PhHeartStraight
+               :size="21"
+               :class="{ 'text-resin-500': isFavorite }"
+               class="text-pirate-200"
+               :weight="isFavorite ? 'fill' : 'regular'"
+               @click="toggleFavorite"
+            />
          </div>
          <p class="text-gray-600">{{ location }}</p>
          <p class="font-inter text-sm font-bold text-gray-800">
@@ -40,6 +46,13 @@
 
 <script setup>
 import { PhBed, PhRuler, PhHeartStraight, PhImages } from "@phosphor-icons/vue";
+
+const isFavorite = ref(false);
+
+const toggleFavorite = () => {
+   // TODO: Add API endpoint to save toggle favorite property
+   isFavorite.value = !isFavorite.value;
+};
 
 const props = defineProps({
    imageUrls: {

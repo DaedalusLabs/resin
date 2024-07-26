@@ -14,13 +14,15 @@
       "lintfix": "eslint . --fix && prettier --write --list-different ."
    },
    "dependencies": {
+      "@emanuele-em/nuxt-swipe": "^1.0.2",
       "@nuxtjs/i18n": "^8.3.1",
       "@phosphor-icons/vue": "^2.2.1",
       "@vite-pwa/nuxt": "^0.9.1",
       "flowbite": "^2.4.1",
       "nuxt": "^3.12.3",
       "prettier-plugin-tailwindcss": "^0.6.5",
-      "vue": "latest"
+      "vue": "latest",
+      "vue3-touch-events": "^4.1.8"
    },
    "devDependencies": {
       "@nuxt/eslint": "^0.3.13",

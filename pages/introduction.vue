@@ -13,7 +13,7 @@
          >
             {{ $t("buyHomeWithoutBank") }}
          </h1>
-         <NuxtLink :to="localePath('/choosePropertyType')">
+         <NuxtLink to="choosePropertyType">
             <FlowbiteButton :text="$t('getStarted')" />
          </NuxtLink>
       </div>
@@ -31,5 +31,7 @@
 </template>
 
 <script setup>
-const localePath = useLocalePath();
+definePageMeta({
+   layout: "intro",
+});
 </script>

@@ -5,6 +5,5 @@
       <main class="flex-1 pb-20">
          <slot />
       </main>
-      <BottomBar />
    </div>
 </template>

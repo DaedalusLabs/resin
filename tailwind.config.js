@@ -17,7 +17,7 @@ export default {
             "hex-dark":
                "url('~/assets/images/backgrounds/BG_Hexagon_Dark10.webp')",
             "hex-white":
-               "url('~/assets/images/backgrounds/BG_Hexagon_White.webp')",
+               "url('~/assets/images/backgrounds/BG_Hexagon_White10.webp')",
             "hex-resin":
                "url('~/assets/images/backgrounds/BG_Hexagon_RESIN.webp')",
          },

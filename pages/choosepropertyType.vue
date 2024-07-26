@@ -39,7 +39,7 @@
 import { ref } from "vue";
 
 const selectedPropertyTypes = ref([]);
-const propertyTypes = [
+const propertyTypes = ref([
    {
       id: 1,
       title: "propertyTypes.shortToMediumTermStay.title",
@@ -55,7 +55,7 @@ const propertyTypes = [
       title: "propertyTypes.commercialProperty.title",
       description: "propertyTypes.commercialProperty.description",
    },
-];
+]);
 
 const addPropertyType = (propertyTypeId) => {
    if (selectedPropertyTypes.value.includes(propertyTypeId)) {
@@ -66,4 +66,8 @@ const addPropertyType = (propertyTypeId) => {
       selectedPropertyTypes.value.push(propertyTypeId);
    }
 };
+
+definePageMeta({
+   layout: "intro",
+});
 </script>

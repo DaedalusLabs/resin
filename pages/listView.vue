@@ -4,7 +4,10 @@
          class="mx-auto flex w-11/12 flex-col items-center justify-center gap-8"
       >
          <TopBar class="mt-10" />
-         <div v-if="isLoading" class="w-full">
+         <div
+            v-if="isLoading"
+            class="flex w-full flex-col items-center justify-center gap-4"
+         >
             <FlowbiteSkeleton v-for="i in 4" :key="i" />
          </div>
          <PropertyCard
