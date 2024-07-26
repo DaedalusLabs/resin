@@ -20,7 +20,12 @@
             class="flex flex-col items-center text-gray-500 hover:text-gray-900"
             :class="{ 'text-resin-500': isResinView }"
          >
-            <IconsResin class="mb-1" />
+            <NuxtImg
+               src="/images/logos/Resin_Hexagon_Gray_Fill.svg"
+               width="32"
+               height="32"
+               class="mb-1"
+            />
          </a>
          <a
             href="favorites"

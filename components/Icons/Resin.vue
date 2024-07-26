@@ -1,45 +1,77 @@
 <template>
    <svg
-      version="1.0"
-      class="mb-1 h-10 w-10"
+      id="svg6"
+      viewBox="0 0 130.21 147.58"
+      version="1.1"
+      sodipodi:docname="Resin_Hexagon_Orange_Fill.svg"
+      inkscape:export-filename="Resin_Hexagon_Orange_Fill.png"
+      inkscape:export-xdpi="737.27051"
+      inkscape:export-ydpi="737.27051"
+      inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 64.000000 64.000000"
-      preserveAspectRatio="xMidYMid meet"
+      xmlns:svg="http://www.w3.org/2000/svg"
    >
-      <g
-         transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
-         fill="currentColor"
-         stroke="none"
-      >
-         <path
-            d="M296 624 c-22 -16 -23 -15 24 -41 120 -67 150 -86 150 -91 0 -4 -35
-26 -77 -50 l-76 -42 -41 23 c-93 53 -118 68 -139 82 -19 11 -26 12 -47 0
-l-25 -13 34 -19 c18 -10 73 -42 122 -70 50 -29 93 -53 96 -53 7 0 211 118 231
-133 10 8 1 18 -41 41 -30 17 -60 36 -68 42 -8 6 -39 25 -69 42 -49 27 -57 29
--74 16z"
-         />
-         <path
-            d="M185 559 c-9 -13 -12 -11 65 -54 56 -31 68 -35 89 -25 24 11 23 12
--43 51 -69 40 -100 48 -111 28z"
-         />
-         <path
-            d="M40 296 c0 -135 6 -166 32 -166 4 0 9 52 10 115 l3 115 75 -43 75
--43 3 -119 c2 -98 5 -122 19 -133 9 -6 20 -12 25 -12 4 0 8 64 8 143 l0 142
--125 72 -125 71 0 -142z"
-         />
-         <path
-            d="M473 367 l-123 -71 0 -143 c0 -141 0 -143 20 -133 18 10 20 21 20
-129 l0 119 78 45 77 45 3 -114 c1 -63 6 -114 10 -114 5 0 16 6 25 13 15 11 17
-29 15 154 l-3 142 -122 -72z"
-         />
-         <path
-            d="M140 177 c0 -75 3 -88 19 -97 11 -5 22 -10 26 -10 3 0 5 37 3 81 -3
-72 -6 83 -25 97 l-23 14 0 -85z"
-         />
-         <path
-            d="M468 246 c-15 -11 -18 -29 -18 -95 0 -44 4 -81 9 -81 23 0 32 32 29
-108 -3 75 -4 80 -20 68z"
-         />
+      <sodipodi:namedview
+         id="namedview6"
+         pagecolor="#ffffff"
+         bordercolor="#000000"
+         borderopacity="0.25"
+         inkscape:showpageshadow="2"
+         inkscape:pageopacity="0.0"
+         inkscape:pagecheckerboard="0"
+         inkscape:deskcolor="#d1d1d1"
+         inkscape:zoom="3.2178786"
+         inkscape:cx="65.105003"
+         inkscape:cy="73.651006"
+         inkscape:window-width="1392"
+         inkscape:window-height="1027"
+         inkscape:window-x="528"
+         inkscape:window-y="25"
+         inkscape:window-maximized="0"
+         inkscape:current-layer="svg6"
+      />
+      <defs id="defs1" />
+      <g id="Laag_2" data-name="Laag 2">
+         <g id="Laag_1-2" data-name="Laag 1">
+            <polygon
+               id="polygon1"
+               class="cls-1"
+               points="0 113.41 11.86 120.25 11.84 65.57 47.35 86.07 47.35 140.75 59.19 147.58 59.19 79.24 0 45.06 0 113.41"
+            />
+            <polygon
+               id="polygon2"
+               class="cls-1"
+               points="23.68 127.08 35.51 133.91 35.51 93.03 23.68 86.19 23.68 127.08"
+            />
+            <polygon
+               id="polygon3"
+               class="cls-1"
+               points="71.03 79.24 71.03 147.58 82.86 140.75 82.86 86.07 118.38 65.57 118.36 120.25 130.21 113.41 130.21 45.06 71.03 79.24"
+            />
+            <polygon
+               id="polygon4"
+               class="cls-1"
+               points="94.7 133.91 106.54 127.08 106.54 86.19 94.7 93.03 94.7 133.91"
+            />
+            <polygon
+               id="polygon5"
+               class="cls-1"
+               points="65.1 0 53.25 6.84 100.62 34.17 65.11 54.68 17.75 27.34 5.92 34.17 65.1 68.34 124.29 34.17 65.1 0"
+            />
+            <polygon
+               id="polygon6"
+               class="cls-1"
+               points="76.83 34.11 41.43 13.67 29.59 20.5 65 40.95 76.83 34.11"
+            />
+         </g>
       </g>
    </svg>
 </template>
+
+<style scoped>
+.cls-1 {
+   fill: #f07e19;
+}
+</style>
