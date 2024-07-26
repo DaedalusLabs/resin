@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 245.18 78.46"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="resin-white.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.7089486"
+     inkscape:cx="140.14465"
+     inkscape:cy="39.205393"
+     inkscape:window-width="1392"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Laag_1-2" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:#303031;}.cls-2{fill:#f07e19;}</style>
+  </defs>
+  <g
+     id="Laag_2"
+     data-name="Laag 2">
+    <g
+       id="Laag_1-2"
+       data-name="Laag 1">
+      <path
+         class="cls-1"
+         d="M124.77,41.84a10.83,10.83,0,0,0,3.29-8,11.25,11.25,0,0,0-11.25-11.25H98.06v7.5h18.75a3.75,3.75,0,1,1,0,7.5H98.06v22.5h7.5V46.07l12.66,14.06h9.84l-13.12-15h1.87A10.83,10.83,0,0,0,124.77,41.84Z"
+         id="path1"
+         style="fill:#ffffff" />
+      <rect
+         class="cls-1"
+         x="134.01"
+         y="22.63"
+         width="26.25"
+         height="7.5"
+         id="rect1"
+         style="fill:#ffffff" />
+      <polygon
+         class="cls-1"
+         points="134.01 60.13 160.26 60.13 160.26 52.63 141.51 52.63 141.51 45.13 160.26 45.13 160.26 37.63 134.01 37.63 134.01 60.13"
+         id="polygon1"
+         style="fill:#ffffff" />
+      <polygon
+         class="cls-1"
+         points="222.68 60.12 222.68 39.04 240.33 60.12 245.18 60.12 245.18 22.63 237.68 22.63 237.68 46.73 219.02 22.63 215.18 22.63 215.18 60.12 222.68 60.12"
+         id="polygon2"
+         style="fill:#ffffff" />
+      <path
+         class="cls-1"
+         d="M187.24,41.41a23.31,23.31,0,0,0-5.07-3q-1.35-.62-2.43-1.05a29,29,0,0,1-3.59-1.73,2.66,2.66,0,0,1-1.45-2.43v-.06a2.89,2.89,0,0,1,1.4-2.42,5.7,5.7,0,0,1,3.11-.86h.23a9.72,9.72,0,0,1,3.61.88,8.44,8.44,0,0,1,2.2,1.14l3.39-6.3a9.65,9.65,0,0,0-1.87-1.37,14.56,14.56,0,0,0-7.21-2h-.44a14.92,14.92,0,0,0-6.06,1.23,11.87,11.87,0,0,0-4.84,3.65,9.11,9.11,0,0,0-1.9,5.44V33a8.77,8.77,0,0,0,1,4.27,11.66,11.66,0,0,0,3,3.46,20.26,20.26,0,0,0,4.29,2.55c1.31.6,2.57,1.24,3.78,1.9a21,21,0,0,1,3.15,2.1,3.23,3.23,0,0,1,1.33,2.56v.12a2.62,2.62,0,0,1-1.76,2.52,8.83,8.83,0,0,1-3.42.7h-.27a11.51,11.51,0,0,1-5-1.29A8,8,0,0,1,170,50.23l-3.6,6.71a11.14,11.14,0,0,0,2.55,1.7,18.78,18.78,0,0,0,8.29,2.08h.61a16.74,16.74,0,0,0,6.36-1.2,12.6,12.6,0,0,0,5.17-3.72,9.55,9.55,0,0,0,2.1-5.86v-.27a9.63,9.63,0,0,0-1-4.45A11.92,11.92,0,0,0,187.24,41.41Z"
+         id="path2"
+         style="fill:#ffffff" />
+      <rect
+         class="cls-1"
+         x="198.07"
+         y="22.63"
+         width="7.5"
+         height="37.5"
+         id="rect2"
+         style="fill:#ffffff" />
+      <polygon
+         class="cls-2"
+         points="0 60.29 6.3 63.93 6.29 34.86 25.17 45.76 25.17 74.83 31.47 78.46 31.47 42.13 0 23.96 0 60.29"
+         id="polygon3" />
+      <polygon
+         class="cls-2"
+         points="12.59 67.56 18.88 71.19 18.88 49.46 12.59 45.83 12.59 67.56"
+         id="polygon4" />
+      <polygon
+         class="cls-2"
+         points="37.76 42.13 37.76 78.46 44.05 74.83 44.05 45.76 62.94 34.86 62.92 63.93 69.23 60.29 69.23 23.96 37.76 42.13"
+         id="polygon5" />
+      <polygon
+         class="cls-2"
+         points="50.35 71.19 56.64 67.56 56.64 45.83 50.35 49.46 50.35 71.19"
+         id="polygon6" />
+      <polygon
+         class="cls-2"
+         points="34.61 0 28.31 3.64 53.49 18.17 34.62 29.07 9.44 14.53 3.15 18.17 34.61 36.34 66.08 18.17 34.61 0"
+         id="polygon7" />
+      <polygon
+         class="cls-2"
+         points="40.85 18.14 22.03 7.27 15.73 10.9 34.55 21.77 40.85 18.14"
+         id="polygon8" />
+    </g>
+  </g>
+</svg>
