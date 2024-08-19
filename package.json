@@ -15,6 +15,7 @@
    },
    "dependencies": {
       "@emanuele-em/nuxt-swipe": "^1.0.2",
+      "@nuxt/fonts": "^0.7.2",
       "@nuxtjs/i18n": "^8.3.1",
       "@phosphor-icons/vue": "^2.2.1",
       "@vite-pwa/nuxt": "^0.9.1",

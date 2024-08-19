@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
    compatibilityDate: "2024-04-03",
-   devtools: { enabled: false },
+   devtools: { enabled: true },
 
    modules: [
       "@nuxt/image",
@@ -9,6 +9,7 @@ export default defineNuxtConfig({
       "@nuxtjs/tailwindcss",
       "@nuxtjs/i18n",
       "@vite-pwa/nuxt",
+      "@nuxt/fonts",
    ],
 
    i18n: {
@@ -22,6 +23,12 @@ export default defineNuxtConfig({
          { code: "nl", iso: "nl-NL", file: "nl.json" },
          { code: "en", iso: "en-US", file: "en.json" },
       ],
+   },
+
+   fonts: {
+      providers: {
+         google: false,
+      },
    },
 
    pwa: {
@@ -68,22 +75,6 @@ export default defineNuxtConfig({
                hid: "description",
                name: "description",
                content: "Nuxt Image module example",
-            },
-         ],
-         // use google font
-         link: [
-            {
-               rel: "preconnect",
-               href: "https://fonts.googleapis.com",
-            },
-            {
-               rel: "preconnect",
-               href: "https://fonts.gstatic.com",
-               crossorigin: true,
-            },
-            {
-               rel: "stylesheet",
-               href: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
             },
          ],
       },
