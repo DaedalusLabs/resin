@@ -13,7 +13,7 @@
          >
             {{ $t("buyHomeWithoutBank") }}
          </h1>
-         <NuxtLink to="choosePropertyType">
+         <NuxtLink :to="localePath('choose-property-type')">
             <FlowbiteButton :text="$t('getStarted')" />
          </NuxtLink>
       </div>

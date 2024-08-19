@@ -13,16 +13,11 @@ export default defineNuxtConfig({
    ],
 
    i18n: {
-      detectBrowserLanguage: false,
+      locales: ["en-US", "nl-NL"],
       strategy: "prefix",
-      lazy: true,
-      langDir: "locales",
-      defaultLocale: "en",
-      baseUrl: "https://resin.com",
-      locales: [
-         { code: "nl", iso: "nl-NL", file: "nl.json" },
-         { code: "en", iso: "en-US", file: "en.json" },
-      ],
+      defaultLocale: "en-US",
+      detectBrowserLanguage: false,
+      vueI18n: "./i18n.config.ts",
    },
 
    fonts: {
@@ -41,19 +36,19 @@ export default defineNuxtConfig({
          scope: "/",
          icons: [
             {
-               src: "android-chrome-512x512.png",
+               src: "/android-chrome-512x512.png",
                sizes: "512x512",
                type: "image/png",
             },
             {
-               src: "android-chrome-192x192.png",
+               src: "/android-chrome-192x192.png",
                sizes: "192x192",
                type: "image/png",
             },
          ],
       },
       workbox: {
-         navigateFallback: "/",
+         navigateFallback: null,
       },
 
       devOptions: {
