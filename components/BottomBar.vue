@@ -9,7 +9,7 @@
             <PhHouseSimple :size="24" weight="regular" class="mb-1" />
          </a>
          <a
-            href="#"
+            href="listview"
             class="flex flex-col items-center text-gray-500 hover:text-gray-900"
             :class="{ 'text-resin-500': isListView }"
          >
