@@ -1,7 +1,7 @@
 <template>
    <button
       type="button"
-      class="inline-flex items-center rounded-lg bg-resin-500 px-6 py-3 text-center font-inter text-sm font-medium text-white hover:bg-resin-600 focus:outline-none focus:ring-4 focus:ring-pirate-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      class="inline-flex items-center rounded-lg bg-resin-500 px-6 py-3 text-center text-sm font-medium text-white hover:bg-resin-600 focus:outline-none focus:ring-4 focus:ring-pirate-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
    >
       {{ text }}
 

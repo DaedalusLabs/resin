@@ -1,7 +1,7 @@
 <template>
    <button
       type="button"
-      class="inline-flex items-center rounded-lg bg-white bg-opacity-25 px-6 py-3 text-center font-inter text-sm font-medium text-pirate-300 hover:cursor-not-allowed"
+      class="inline-flex items-center rounded-lg bg-white bg-opacity-25 px-6 py-3 text-center text-sm font-medium text-pirate-300 hover:cursor-not-allowed"
    >
       {{ text }}
 

@@ -8,9 +8,7 @@
          class="max-h-20 max-w-96"
       />
       <div class="flex flex-col items-center justify-center gap-6">
-         <h1
-            class="text-center font-inter text-4xl font-bold leading-tight text-white"
-         >
+         <h1 class="text-center text-4xl font-bold leading-tight text-white">
             {{ $t("buyHomeWithoutBank") }}
          </h1>
          <NuxtLink :to="localePath('choose-property-type')">
@@ -22,7 +20,7 @@
 
          <NuxtLink
             to="#"
-            class="mb-2 me-2 rounded-lg px-5 py-2.5 font-inter text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
+            class="mb-2 me-2 rounded-lg px-5 py-2.5 text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
          >
             {{ $t("checkCountryAvailability") }}
          </NuxtLink>

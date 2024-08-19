@@ -24,7 +24,7 @@
             />
          </div>
          <p class="text-gray-600">{{ location }}</p>
-         <p class="font-inter text-sm font-bold text-gray-800">
+         <p class="text-sm font-bold text-gray-800">
             {{ price }} SRD per month
          </p>
       </div>

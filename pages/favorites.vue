@@ -1,9 +1,7 @@
 <template>
    <section class="mx-auto flex w-10/12 flex-col py-20">
       <div class="mb-5 flex items-center justify-between text-pirate-950">
-         <h1 class="font-inter text-2xl font-extrabold leading-tight">
-            Favorites
-         </h1>
+         <h1 class="text-2xl font-extrabold leading-tight">Favorites</h1>
          <button @click="sharePage">
             <svg
                class="h-6 w-6 text-gray-800 dark:text-white"
@@ -29,7 +27,7 @@
          v-if="favorites.length === 0"
          class="items center flex flex-col items-center justify-center"
       >
-         <p class="mt-20 gap-2 font-inter font-semibold text-pirate-950">
+         <p class="mt-20 gap-2 font-semibold text-pirate-950">
             You have no favorites yet
          </p>
          <NuxtLink :to="localePath('list-view')">

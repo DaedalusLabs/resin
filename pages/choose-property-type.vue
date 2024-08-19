@@ -1,8 +1,6 @@
 <template>
    <section class="flex flex-col items-center justify-between px-12 pt-20">
-      <h1
-         class="text-center font-inter text-2xl font-extrabold leading-tight text-white"
-      >
+      <h1 class="text-center text-2xl font-extrabold leading-tight text-white">
          {{ $t("propertyType") }}
       </h1>
       <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -27,7 +25,7 @@
          <NuxtLink
             v-if="selectedPropertyTypes.length < 1"
             to="#"
-            class="mt-4 rounded-lg px-5 py-2.5 font-inter text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
+            class="mt-4 rounded-lg px-5 py-2.5 text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
          >
             {{ $t("skip") }}
          </NuxtLink>

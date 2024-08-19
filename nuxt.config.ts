@@ -21,9 +21,7 @@ export default defineNuxtConfig({
    },
 
    fonts: {
-      providers: {
-         google: false,
-      },
+      families: [{ name: "Inter", provider: "fontsource" }],
    },
 
    pwa: {
@@ -59,7 +57,7 @@ export default defineNuxtConfig({
 
    app: {
       head: {
-         title: "Nuxt Image",
+         title: "Resin - Buy a home without a bank",
          meta: [
             { charset: "utf-8" },
             {

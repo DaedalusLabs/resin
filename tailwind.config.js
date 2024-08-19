@@ -10,9 +10,6 @@ export default {
    ],
    theme: {
       extend: {
-         fontFamily: {
-            inter: ["Inter", "sans-serif"],
-         },
          backgroundImage: {
             "hex-dark":
                "url('~/assets/images/backgrounds/BG_Hexagon_Dark10.webp')",
