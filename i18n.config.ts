@@ -1,5 +1,6 @@
 export default defineI18nConfig(() => ({
    legacy: false,
+   fallbackLocale: "en-US",
    messages: {
       "en-US": {
          buyHomeWithoutBank: "Buy a home without the bank",
