@@ -19,25 +19,38 @@
          :to="localePath('list-view')"
       >
          <FlowbiteButton
-            :text="`View ${visibleLocations} properties`"
+            :text="`View ${visibleLocationsAmount} properties`"
             class="rounded bg-resin-500 px-4 py-2 text-white hover:bg-resin-600"
          />
       </NuxtLink>
+      <button
+         class="force-top absolute bottom-10 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-white p-2 shadow-md"
+         @click="getUserLocation"
+      >
+         <PhGps :size="32" />
+      </button>
    </div>
 </template>
 
 <script setup>
 import * as Leaflet from "leaflet";
 import "leaflet.markercluster";
+import { useLocationsStore } from "~/stores/locations";
+import { PhGps } from "@phosphor-icons/vue";
 
+const locationsStore = useLocationsStore();
+const locations = locationsStore.locations;
 const zoom = ref(6);
-const userLocation = ref([47.21322, -1.559482]);
 const map = ref(null);
-const visibleLocations = ref(0);
+const visibleLocationsAmount = ref(0);
+const userLocation = ref({ lat: 47.41322, lng: -1.219482 });
 
-onMounted(() => {
-   console.log(L);
-   if (navigator.geolocation) {
+const getUserLocation = () => {
+   if (
+      navigator.geolocation &&
+      userLocation.value.lat === 47.41322 &&
+      userLocation.value.lng === -1.219482
+   ) {
       navigator.geolocation.getCurrentPosition((position) => {
          userLocation.value = [
             position.coords.latitude,
@@ -46,82 +59,7 @@ onMounted(() => {
          zoom.value = 12;
       });
    }
-});
-
-const locations = [
-   {
-      name: "Nantes",
-      lat: 47.218371,
-      lng: -1.553621,
-      popup: "<h1>This is Nantes</h1>",
-   },
-   {
-      name: "Paris",
-      lat: 48.856613,
-      lng: 2.352222,
-      popup: "<h1>This is Paris</h1>",
-   },
-   {
-      name: "Lyon",
-      lat: 45.75,
-      lng: 4.85,
-      popup: "<h1>This is Lyon</h1>",
-   },
-   {
-      name: "Marseille",
-      lat: 43.296346,
-      lng: 5.369889,
-      popup: "<h1>This is Marseille</h1>",
-   },
-   {
-      name: "Bordeaux",
-      lat: 44.837789,
-      lng: -0.57918,
-      popup: "<h1>This is Bordeaux</h1>",
-   },
-   {
-      name: "Toulouse",
-      lat: 43.604652,
-      lng: 1.444209,
-      popup: "<h1>This is Toulouse</h1>",
-   },
-   {
-      name: "Lille",
-      lat: 50.62925,
-      lng: 3.057256,
-      popup: "<h1>This is Lille</h1>",
-   },
-   {
-      name: "Strasbourg",
-      lat: 48.573405,
-      lng: 7.752111,
-      popup: "<h1>This is Strasbourg</h1>",
-   },
-   {
-      name: "Rennes",
-      lat: 48.117266,
-      lng: -1.677792,
-      popup: "<h1>This is Rennes</h1>",
-   },
-   {
-      name: "Montpellier",
-      lat: 43.610769,
-      lng: 3.876716,
-      popup: "<h1>This is Montpellier</h1>",
-   },
-   {
-      name: "Nice",
-      lat: 43.7101728,
-      lng: 7.2619532,
-      popup: "<h1>This is Nice</h1>",
-   },
-   {
-      name: "Grenoble",
-      lat: 45.188529,
-      lng: 5.724524,
-      popup: "<h1>This is Grenoble</h1>",
-   },
-];
+};
 
 const onMapReady = () => {
    useLMarkerCluster({
@@ -132,13 +70,18 @@ const onMapReady = () => {
 
    map.value.leafletObject.on("moveend", calculateVisibleLocations);
    map.value.leafletObject.on("zoomend", calculateVisibleLocations);
+
+   // remove zoom control
+   map.value.leafletObject.removeControl(map.value.leafletObject.zoomControl);
 };
 
 const calculateVisibleLocations = () => {
    const bounds = map.value.leafletObject.getBounds();
-   visibleLocations.value = locations.filter((location) =>
+   const visibleLocations = locations.filter((location) =>
       bounds.contains([location.lat, location.lng]),
-   ).length;
+   );
+   visibleLocationsAmount.value = visibleLocations.length;
+   locationsStore.setFilteredLocations(visibleLocations);
 };
 </script>
 

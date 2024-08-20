@@ -19,6 +19,7 @@
       "@nuxtjs/i18n": "^8.5.0",
       "@nuxtjs/leaflet": "^1.2.2",
       "@phosphor-icons/vue": "^2.2.1",
+      "@pinia/nuxt": "^0.5.3",
       "@vite-pwa/nuxt": "^0.10.0",
       "flowbite": "^2.5.1",
       "leaflet.markercluster": "^1.5.3",

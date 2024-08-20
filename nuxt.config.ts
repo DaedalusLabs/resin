@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       "@vite-pwa/nuxt",
       "@nuxt/fonts",
       "@nuxtjs/leaflet",
+      "@pinia/nuxt"
    ],
 
    leaflet: {

@@ -22,13 +22,18 @@
       </svg>
 
       <!-- MapPinLine -->
-      <PhMapPinLine v-else-if="icon === 'map'" class="h-6 w-6" weight="bold" />
+      <NuxtLink v-else-if="icon === 'map'" :to="localePath('map')">
+         <PhMapPinLine class="h-6 w-6" weight="bold" />
+      </NuxtLink>
+      <NuxtLink v-else :to="localePath('list-view')">
+         <PhRows class="h-6 w-6" weight="bold" />
+      </NuxtLink>
       <span class="sr-only">{{ description }}</span>
    </button>
 </template>
 
 <script setup>
-import { PhMapPinLine } from "@phosphor-icons/vue";
+import { PhMapPinLine, PhRows } from "@phosphor-icons/vue";
 
 defineProps({
    icon: {

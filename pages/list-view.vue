@@ -15,8 +15,8 @@
             v-else
             :key="property.id"
             :image-urls="property.imageUrls"
-            :address="property.address"
-            :location="property.location"
+            :address="property.address.street"
+            :location="property.address.city + ', ' + property.address.city"
             :price="property.price"
             :size="property.size"
             :beds="property.beds"
@@ -33,72 +33,17 @@
 </template>
 
 <script setup>
-const properties = ref([]);
+import { useLocationsStore } from "~/stores/locations";
 const isLoading = ref(true);
+
+const locationsStore = useLocationsStore();
+const properties = locationsStore.filteredLocations;
 
 onMounted(() => {
    setTimeout(() => {
-      properties.value = getProperties(); // TODO: replace by API call
       isLoading.value = false;
    }, 3000);
 });
-
-function getProperties() {
-   return [
-      {
-         id: 1,
-         imageUrls: [
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-         ],
-         address: "Mahonylaan 5",
-         location: "Paramaribo, Suriname",
-         price: 1950,
-         size: 195,
-         beds: 3,
-      },
-      {
-         id: 2,
-         imageUrls: [
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-         ],
-         address: "Mahonylaan 5",
-         location: "Paramaribo, Suriname",
-         price: 1950,
-         size: 195,
-         beds: 3,
-      },
-      {
-         id: 3,
-         imageUrls: [
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-         ],
-         address: "Mahonylaan 5",
-         location: "Paramaribo, Suriname",
-         price: 1950,
-         size: 195,
-         beds: 3,
-      },
-      {
-         id: 4,
-         imageUrls: [
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-            "/images/mock/house.png",
-         ],
-         address: "Mahonylaan 5",
-         location: "Paramaribo, Suriname",
-         price: 1950,
-         size: 195,
-         beds: 3,
-      },
-   ];
-}
 
 const showDrawer = ref(false);
 const currentPropertyImages = ref([]);
