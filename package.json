@@ -16,27 +16,29 @@
    "dependencies": {
       "@emanuele-em/nuxt-swipe": "^1.0.2",
       "@nuxt/fonts": "^0.7.2",
-      "@nuxtjs/i18n": "^8.3.1",
+      "@nuxtjs/i18n": "^8.5.0",
+      "@nuxtjs/leaflet": "^1.2.2",
       "@phosphor-icons/vue": "^2.2.1",
-      "@vite-pwa/nuxt": "^0.9.1",
-      "flowbite": "^2.4.1",
-      "nuxt": "^3.12.3",
-      "prettier-plugin-tailwindcss": "^0.6.5",
-      "vue": "latest",
-      "vue3-touch-events": "^4.1.8"
+      "@vite-pwa/nuxt": "^0.10.0",
+      "flowbite": "^2.5.1",
+      "leaflet.markercluster": "^1.5.3",
+      "nuxt": "^3.12.4",
+      "prettier-plugin-tailwindcss": "^0.6.6",
+      "vue": "^3.4.38",
+      "vue3-touch-events": "^4.2.0"
    },
    "devDependencies": {
-      "@nuxt/eslint": "^0.3.13",
-      "@nuxt/image": "^1.4.0",
+      "@nuxt/eslint": "^0.5.1",
+      "@nuxt/image": "^1.7.0",
       "@nuxtjs/tailwindcss": "^6.12.1",
-      "autoprefixer": "^10.4.18",
-      "eslint": "^9.6.0",
+      "autoprefixer": "^10.4.20",
+      "eslint": "^9.9.0",
       "eslint-config-prettier": "^9.1.0",
-      "eslint-plugin-prettier": "^5.1.3",
-      "postcss": "^8.4.35",
-      "prettier": "^3.3.2",
-      "tailwindcss": "^3.4.1",
-      "typescript": "^5.5.3"
+      "eslint-plugin-prettier": "^5.2.1",
+      "postcss": "^8.4.41",
+      "prettier": "^3.3.3",
+      "tailwindcss": "^3.4.10",
+      "typescript": "^5.5.4"
    },
    "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 }

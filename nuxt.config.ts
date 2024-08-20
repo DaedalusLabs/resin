@@ -10,7 +10,12 @@ export default defineNuxtConfig({
       "@nuxtjs/i18n",
       "@vite-pwa/nuxt",
       "@nuxt/fonts",
+      "@nuxtjs/leaflet",
    ],
+
+   leaflet: {
+      markerCluster: true,
+   },
 
    i18n: {
       locales: ["en-US", "nl-NL"],

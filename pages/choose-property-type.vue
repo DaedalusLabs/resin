@@ -14,12 +14,15 @@
          />
       </div>
       <div class="flex flex-col items-center justify-center gap-2">
-         <NuxtLink v-if="selectedPropertyTypes.length > 0" to="list-view">
-            <FlowbiteButton class="mt-10" :text="$t('chooseLocation')" />
+         <NuxtLink
+            v-if="selectedPropertyTypes.length > 0"
+            :to="localePath('map')"
+         >
+            <FlowbiteButton class="my-10" :text="$t('chooseLocation')" />
          </NuxtLink>
          <FlowbiteDisabledButton
             v-else
-            class="mt-10"
+            class="my-10"
             :text="$t('chooseLocation')"
          />
          <NuxtLink
