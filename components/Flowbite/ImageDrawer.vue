@@ -5,7 +5,10 @@ const drawer = ref(null);
 
 const props = defineProps({
    showDrawer: Boolean,
-   imageUrls: Array,
+   imageUrls: {
+      type: Array,
+      required: true,
+   },
 });
 
 const emit = defineEmits(["close"]);

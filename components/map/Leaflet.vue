@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import * as Leaflet from "leaflet";
+import * as _Leaflet from "leaflet";
 import "leaflet.markercluster";
 import { useLocationsStore } from "~/stores/locations";
 import { PhGps } from "@phosphor-icons/vue";

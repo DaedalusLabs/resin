@@ -23,12 +23,13 @@
                   RESIN offers appartments, single family homes, commercial real
                   estate and more around LatAm.
                </div>
-               <a
+               <button
                   href="#"
                   class="inline-flex rounded-lg bg-resin-500 px-2.5 py-1.5 text-center text-xs font-medium text-white hover:bg-resin-600 focus:outline-none focus:ring-4 focus:ring-resin-300 dark:bg-resin-500 dark:hover:bg-resin-600 dark:focus:ring-resin-800"
                   @click="showToast = false"
-                  >Continue</a
                >
+                  Continue
+               </button>
             </div>
          </div>
       </div>
