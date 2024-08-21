@@ -60,11 +60,40 @@ const getUserLocation = () => {
    }
 };
 
-const onMapReady = () => {
-   useLMarkerCluster({
-      leafletObject: map.value.leafletObject,
-      markers: locations,
+const createCustomIcon = (count) => {
+   if (count === 1) {
+      return L.divIcon({
+         className:
+            "bg-resin-500 border-2 border-white text-white text-center custom-marker rounded-full shadow-md text-sm font-bold",
+         iconSize: [20, 20],
+         iconAnchor: [10, 20],
+      });
+   }
+   return L.divIcon({
+      html: `<div class="marker-icon">${count}</div>`,
+      className:
+         "bg-resin-500  border-2 border-white text-white text-center custom-marker rounded-full shadow-md text-sm font-bold",
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
    });
+};
+
+const onMapReady = () => {
+   const markers = L.markerClusterGroup({
+      iconCreateFunction: function (cluster) {
+         const count = cluster.getChildCount();
+         return createCustomIcon(count);
+      },
+   });
+
+   locations.forEach((location) => {
+      const marker = L.marker([location.lat, location.lng], {
+         icon: createCustomIcon(1),
+      });
+      markers.addLayer(marker);
+   });
+
+   map.value.leafletObject.addLayer(markers);
    calculateVisibleLocations();
 
    map.value.leafletObject.on("moveend", calculateVisibleLocations);
@@ -106,7 +135,7 @@ watch(
 );
 </script>
 
-<style scoped>
+<style>
 .force-top {
    z-index: 9999; /* High z-index to ensure it appears above other elements */
 }
