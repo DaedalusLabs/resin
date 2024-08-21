@@ -1,5 +1,5 @@
 <template>
-   <form class="mx-auto max-w-md">
+   <form>
       <label
          for="default-search"
          class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -27,11 +27,12 @@
          </div>
          <input
             id="default-search"
-            v-model="query"
+            :value="query"
             type="search"
-            class="focus:outline-border-pirate-700 block w-full rounded-2xl border border-pirate-700 border-transparent bg-black p-4 ps-10 text-sm text-gray-900 text-pirate-50 outline-none focus:border-pirate-700 focus:ring-0"
+            class="focus:outline-border-pirate-700 block w-full rounded-2xl border border-pirate-700 border-transparent bg-black p-4 pr-7 ps-10 text-sm text-gray-900 text-pirate-50 outline-none focus:border-pirate-700 focus:ring-0"
             placeholder="City, region, country..."
             required
+            @input="onInput($event)"
          />
          <button
             v-if="query"
@@ -59,11 +60,20 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+defineProps({
+   query: {
+      type: String,
+      required: true,
+   },
+});
 
-const query = ref("");
+const emit = defineEmits(["update:query"]);
 
-const clearQuery = () => {
-   query.value = "";
-};
+function onInput(event) {
+   emit("update:query", event.target.value);
+}
+
+function clearQuery() {
+   emit("update:query", "");
+}
 </script>

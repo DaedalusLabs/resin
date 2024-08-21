@@ -180,7 +180,13 @@ export const useLocationsStore = defineStore("locations", {
          this.filteredLocations = this.locations.filter((location) => {
             return (
                location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-               location.fullAddress
+               location.address.street
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase()) ||
+               location.address.city
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase()) ||
+               location.address.country
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase())
             );

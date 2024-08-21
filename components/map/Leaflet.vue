@@ -3,7 +3,7 @@
       <LMap
          ref="map"
          :zoom="zoom"
-         :center="userLocation"
+         :center="mapCenter"
          :use-global-leaflet="true"
          @ready="onMapReady"
       >
@@ -31,7 +31,6 @@
       </button>
    </div>
 </template>
-
 <script setup>
 import * as _Leaflet from "leaflet";
 import "leaflet.markercluster";
@@ -52,10 +51,10 @@ const getUserLocation = () => {
       userLocation.value.lng === -1.219482
    ) {
       navigator.geolocation.getCurrentPosition((position) => {
-         userLocation.value = [
-            position.coords.latitude,
-            position.coords.longitude,
-         ];
+         userLocation.value = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+         };
          zoom.value = 12;
       });
    }
@@ -83,6 +82,28 @@ const calculateVisibleLocations = () => {
    visibleLocationsAmount.value = visibleLocations.length;
    locationsStore.setFilteredLocations(visibleLocations);
 };
+
+const props = defineProps({
+   mapCenter: {
+      type: Object,
+      required: false,
+      default: () => ({ lat: 47.41322, lng: -1.219482 }),
+   },
+});
+
+// Watch mapCenter for changes and update the map center
+watch(
+   () => props.mapCenter,
+   (newCenter) => {
+      if (map.value && newCenter) {
+         map.value.leafletObject.setView(
+            [newCenter.lat, newCenter.lng],
+            (zoom.value = 15),
+         );
+      }
+   },
+   { immediate: true },
+);
 </script>
 
 <style scoped>
