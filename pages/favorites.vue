@@ -42,9 +42,9 @@
          <FavoritesCard
             v-for="favorite in favorites"
             :key="favorite.id"
-            :image="favorite.image"
-            :title="favorite.title"
-            :location="favorite.location"
+            :image="favorite.imageUrls[0]"
+            :title="favorite.address.street"
+            :location="favorite.address.city + ', ' + favorite.address.country"
             :price="favorite.price"
             @remove="removeFavorite(favorite.id)"
          />
@@ -53,29 +53,17 @@
 </template>
 
 <script setup>
+import { useLocationsStore } from "~/stores/locations";
+
 definePageMeta({
    layout: "white",
 });
 
-const favorites = ref([
-   {
-      id: 1,
-      image: "images/mock/favorites/mock.webp",
-      title: "Mahonylaan 5",
-      location: "Paramaribo, Suriname",
-      price: "1,950",
-   },
-   {
-      id: 2,
-      image: "images/mock/favorites/mock.webp",
-      title: "Johannes Mungrastraat 520",
-      location: "Paramaribo, Suriname",
-      price: "1,200",
-   },
-]);
+const locationsStore = useLocationsStore();
+const favorites = ref(locationsStore.favoriteLocations);
 
 const removeFavorite = (id) => {
-   favorites.value = favorites.value.filter((favorite) => favorite.id !== id);
+   locationsStore.toggleFavorite(id);
 };
 
 const route = useRoute();

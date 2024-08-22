@@ -18,6 +18,11 @@ export const useLocationsStore = defineStore("locations", {
       areFiltersActive() {
          return this.locations.length !== this.filteredLocations.length;
       },
+      favoriteLocations() {
+         return this.locations.filter((location) =>
+            this.favorites.includes(location.id),
+         );
+      },
    },
 
    actions: {
