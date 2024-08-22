@@ -5,6 +5,7 @@ export const useLocationsStore = defineStore("locations", {
       return {
          locations: [],
          filteredLocations: [],
+         favorites: [],
       };
    },
    getters: {
@@ -41,6 +42,16 @@ export const useLocationsStore = defineStore("locations", {
       },
       resetLocations() {
          this.filteredLocations = this.locations;
+      },
+      toggleFavorite(locationId) {
+         if (this.favorites.includes(locationId)) {
+            this.favorites = this.favorites.filter((id) => id !== locationId);
+         } else {
+            this.favorites.push(locationId);
+         }
+      },
+      isFavorite(locationId) {
+         return this.favorites.includes(locationId);
       },
    },
 });
