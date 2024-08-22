@@ -30,7 +30,7 @@
          <p class="mt-20 gap-2 font-semibold text-pirate-950">
             You have no favorites yet
          </p>
-         <NuxtLink :to="localePath('list-view')">
+         <NuxtLink :to="localePath('properties')">
             <p
                class="mt-4 inline-block rounded-lg border-2 border-resin-500 bg-resin-500 px-4 py-2 text-white"
             >

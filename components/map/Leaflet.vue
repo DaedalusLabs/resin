@@ -16,7 +16,7 @@
       </LMap>
       <NuxtLink
          class="force-top absolute bottom-10"
-         :to="localePath('list-view')"
+         :to="localePath('properties')"
       >
          <FlowbiteButton
             :text="`View ${visibleLocationsAmount} properties`"
@@ -31,6 +31,7 @@
       </button>
    </div>
 </template>
+
 <script setup>
 import * as _Leaflet from "leaflet";
 import "leaflet.markercluster";
@@ -90,6 +91,19 @@ const onMapReady = () => {
       const marker = L.marker([location.lat, location.lng], {
          icon: createCustomIcon(1),
       });
+
+      marker.on("click", () => {
+         // go to /properties/:id but also use the current locale
+         const localeRoute = useLocaleRoute();
+         const route = localeRoute({
+            name: "properties-id",
+            params: { id: location.id.toString() },
+         });
+         if (route) {
+            return navigateTo(route.fullPath);
+         }
+      });
+
       markers.addLayer(marker);
    });
 

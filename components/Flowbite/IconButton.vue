@@ -25,7 +25,7 @@
       <NuxtLink v-else-if="icon === 'map'" :to="localePath('map')">
          <PhMapPinLine class="h-6 w-6" weight="bold" />
       </NuxtLink>
-      <NuxtLink v-else :to="localePath('list-view')">
+      <NuxtLink v-else :to="localePath('properties')">
          <PhRows class="h-6 w-6" weight="bold" />
       </NuxtLink>
       <span class="sr-only">{{ description }}</span>
