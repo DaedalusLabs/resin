@@ -20,7 +20,7 @@
             <PhHeartStraight
                :size="21"
                :class="{ 'text-resin-500': isFavorite }"
-               class="text-pirate-200"
+               class="text-pirate-200 hover:cursor-pointer"
                :weight="isFavorite ? 'fill' : 'regular'"
                @click="toggleFavorite"
             />

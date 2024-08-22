@@ -25,6 +25,10 @@ const mapCenter = ref({ lat: 47.41322, lng: -1.219482 });
 function updateMapCenter(lat, lng) {
    mapCenter.value = { lat, lng };
 }
+
+definePageMeta({
+   layout: "intro",
+});
 </script>
 
 <style scoped>

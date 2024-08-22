@@ -55,9 +55,16 @@ import {
 
 const route = useRoute();
 
-const isListView = route.name.includes("listView");
-const isHomeView = route.name.includes("home");
-const isResinView = route.name.includes("resin");
-const isFavoritesView = route.name.includes("favorites");
-const isProfileView = route.name.includes("profile");
+const isListView = ref(false);
+const isHomeView = ref(false);
+const isResinView = ref(false);
+const isFavoritesView = ref(false);
+const isProfileView = ref(false);
+watchEffect(() => {
+   isListView.value = route.path.includes("properties");
+   isHomeView.value = route.path === "/";
+   isResinView.value = route.path.includes("resin");
+   isFavoritesView.value = route.path.includes("favorites");
+   isProfileView.value = route.path.includes("profile");
+});
 </script>
