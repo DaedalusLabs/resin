@@ -14,12 +14,7 @@
             v-for="property in properties"
             v-else
             :key="property.id"
-            :image-urls="property.imageUrls"
-            :address="property.address.street"
-            :location="property.address.city + ', ' + property.address.city"
-            :price="property.price"
-            :size="property.size"
-            :beds="property.beds"
+            :property="property"
             class="w-full md:w-96"
             @open-gallery="openGallery(property.imageUrls)"
          />

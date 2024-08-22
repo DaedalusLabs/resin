@@ -28,6 +28,7 @@ export default defineI18nConfig(() => ({
          chooseLocation: "Choose location",
          skip: "Skip",
          fetching: "Fetching Nostr...",
+         details: "Details",
       },
       "nl-NL": {
          buyHomeWithoutBank: "Koop een huis zonder de bank",
@@ -55,6 +56,7 @@ export default defineI18nConfig(() => ({
          chooseLocation: "Kies locatie",
          skip: "Overslaan",
          fetching: "Nostr ophalen...",
+         details: "Details",
       },
    },
 }));

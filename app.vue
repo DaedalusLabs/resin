@@ -98,11 +98,9 @@ async function getLocations() {
    ];
 }
 
-onMounted(async () => {
-   const locations = await getLocations();
-   locationsStore.locations = locations;
-   locationsStore.filteredLocations = locations;
-});
+const locations = await getLocations();
+locationsStore.locations = locations;
+locationsStore.filteredLocations = locations;
 </script>
 
 <style>
