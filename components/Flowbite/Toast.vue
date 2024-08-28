@@ -5,9 +5,17 @@
    >
       <div
          id="toast-message-cta"
-         class="w-full max-w-xs rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-gray-800 dark:text-gray-400"
+         class="relative w-full max-w-xs rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-gray-800 dark:text-gray-400"
          role="alert"
       >
+         <button
+            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+            @click="showToast = false"
+            aria-label="Close"
+         >
+            <PhX :size="18"  weight="bold"/>
+         </button>
+
          <div class="flex">
             <NuxtImg
                class="h-8 w-8 rounded-full"
@@ -20,7 +28,7 @@
                   >Let's find a property!</span
                >
                <div class="mb-2 text-sm font-normal">
-                  RESIN offers appartments, single family homes, commercial real
+                  RESIN offers apartments, single family homes, commercial real
                   estate and more around LatAm.
                </div>
                <button
@@ -37,5 +45,6 @@
 </template>
 
 <script setup>
+import { PhX } from "@phosphor-icons/vue";
 const showToast = ref(true);
 </script>
