@@ -28,7 +28,7 @@
          <NuxtLink
             v-if="selectedPropertyTypes.length < 1"
             :to="localePath('map')"
-            class="mt-4 rounded-lg px-5 py-2.5 text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
+            class="mt-4 rounded-lg px-5 py-2.5 mb-10 text-sm font-medium text-pirate-400 hover:bg-white hover:text-pirate-700"
          >
             {{ $t("skip") }}
          </NuxtLink>
