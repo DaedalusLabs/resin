@@ -1,6 +1,5 @@
 <template>
    <div class="relative flex h-full w-full items-center justify-center">
-      <!-- Maplibre Map Container -->
       <div ref="mapContainer" class="h-full w-full" />
 
       <!-- Button to View Properties -->
@@ -105,9 +104,6 @@ onMounted(() => {
          })),
       };
 
-      // remove attribution control
-      map.value.removeControl(map.value.attributionControl);
-
       map.value.addSource("locations", {
          type: "geojson",
          data: geojson,
@@ -122,10 +118,10 @@ onMounted(() => {
          type: "circle",
          source: "locations",
          filter: ["has", "point_count"],
-         paint: {       
+         paint: {
             "circle-stroke-width": 2,
             "circle-stroke-color": "#fff",
-        
+
             "circle-color": [
                "step",
                ["get", "point_count"],
@@ -153,7 +149,7 @@ onMounted(() => {
          source: "locations",
          filter: ["has", "point_count"],
          layout: {
-         "text-field": "{point_count_abbreviated}",
+            "text-field": "{point_count_abbreviated}",
             "text-size": 12,
          },
          paint: {
@@ -179,17 +175,19 @@ onMounted(() => {
       });
 
       // click on a cluster
-      map.value.on('click', 'clusters', async (e) => {
-            const features = map.value.queryRenderedFeatures(e.point, {
-                layers: ['clusters']
-            });
-            const clusterId = features[0].properties.cluster_id;
-            const zoom = await map.value.getSource('locations').getClusterExpansionZoom(clusterId);
-            map.value.easeTo({
-                center: features[0].geometry.coordinates,
-                zoom
-            });
-        });
+      map.value.on("click", "clusters", async (e) => {
+         const features = map.value.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+         });
+         const clusterId = features[0].properties.cluster_id;
+         const zoom = await map.value
+            .getSource("locations")
+            .getClusterExpansionZoom(clusterId);
+         map.value.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom,
+         });
+      });
       calculateVisibleLocations();
 
       map.value.on("moveend", calculateVisibleLocations);
@@ -202,6 +200,7 @@ watch(
    (newCenter) => {
       if (map.value && newCenter) {
          map.value.setCenter([newCenter.lng, newCenter.lat]);
+         map.value.setZoom(20);
       }
    },
    { immediate: true },
