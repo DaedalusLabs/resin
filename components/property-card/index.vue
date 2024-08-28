@@ -6,6 +6,7 @@
             class="z-0 h-48 w-full object-cover md:h-72 lg:h-96"
          />
          <button
+            v-if="showMediaIcon"
             class="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white shadow-md hover:border-resin-500"
             @click="openGallery"
          >
@@ -63,7 +64,13 @@ const props = defineProps({
       type: Object,
       required: true,
    },
+   showMediaIcon: {
+      type: Boolean,
+      default: true,
+   },
 });
+
+console.log(props.property.address);
 
 const isFavorite = ref(locationsStore.isFavorite(props.property.id));
 
