@@ -18,7 +18,6 @@
          <FlowbiteIconButton
             icon="filter"
             description="filter properties"
-            :class="locationsStore.areFiltersActive ? 'text-resin-500' : ''"
          />
       </div>
       <TopBarDropdown
