@@ -7,7 +7,7 @@
       />
       <FlowbiteToast />
       <ClientOnly fallback-tag="span">
-         <MapLeaflet :map-center="mapCenter" />
+         <MapLibre :map-center="mapCenter" />
          <template #fallback>
             <div
                class="absolute inset-0 flex h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-800"
