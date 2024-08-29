@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       "@nuxt/eslint",
       "@nuxtjs/tailwindcss",
       "@nuxtjs/i18n",
-      "@vite-pwa/nuxt",
+      //   "@vite-pwa/nuxt", Enable this module in Production
       "@nuxt/fonts",
       "@pinia/nuxt",
       "nuxt-maplibre",
@@ -28,29 +28,21 @@ export default defineNuxtConfig({
 
    pwa: {
       manifest: {
-         name: "Resin - Buy a home without a bank",
+         name: "Resin",
          short_name: "Resin",
-         description: "Buy a home without a bank",
-         display: "standalone",
-         theme_color: "#000000",
-         scope: "/",
+         theme_color: "#F07E19",
+         description: "Resin - Buy a home without a bank",
          icons: [
             {
-               src: "/android-chrome-512x512.png",
-               sizes: "512x512",
-               type: "image/png",
-            },
-            {
-               src: "/android-chrome-192x192.png",
-               sizes: "192x192",
+               src: "android-chrome-256x256.png",
+               sizes: "150x150",
                type: "image/png",
             },
          ],
       },
       workbox: {
-         navigateFallback: null,
+         navigateFallback: "/",
       },
-
       devOptions: {
          enabled: true,
          type: "module",
