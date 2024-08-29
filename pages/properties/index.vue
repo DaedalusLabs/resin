@@ -30,13 +30,13 @@
 <script setup>
 import { useLocationsStore } from "~/stores/locations";
 const isLoading = ref(true);
-
-const locationsStore = useLocationsStore();
-const properties = locationsStore.filteredLocations;
+const properties = ref([]);
 
 onMounted(() => {
    setTimeout(() => {
       isLoading.value = false;
+      const locationsStore = useLocationsStore();
+      properties.value = locationsStore.filteredLocations;
    }, 3000);
 });
 

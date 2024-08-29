@@ -55,18 +55,22 @@
 <script setup>
 import { useLocationsStore } from "~/stores/locations";
 
+const favorites = ref([]);
+const locationsStore = useLocationsStore();
+const route = useRoute();
+
 definePageMeta({
    layout: "white",
 });
 
-const locationsStore = useLocationsStore();
-const favorites = ref(locationsStore.favoriteLocations);
+onMounted(() => {
+   favorites.value = locationsStore.favoriteLocations;
+});
 
 const removeFavorite = (id) => {
    locationsStore.toggleFavorite(id);
+   favorites.value = locationsStore.favoriteLocations;
 };
-
-const route = useRoute();
 
 const shareData = {
    title: "RESIN",

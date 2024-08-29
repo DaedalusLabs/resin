@@ -119,7 +119,7 @@ onMounted(() => {
          source: "locations",
          filter: ["has", "point_count"],
          paint: {
-            "circle-stroke-width": 2,
+            "circle-stroke-width": 3,
             "circle-stroke-color": "#fff",
 
             "circle-color": [
@@ -150,7 +150,8 @@ onMounted(() => {
          filter: ["has", "point_count"],
          layout: {
             "text-field": "{point_count_abbreviated}",
-            "text-size": 12,
+            "text-size": 15,
+            "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"], // Use Inter if it's available
          },
          paint: {
             "text-color": "#ffffff",
@@ -162,6 +163,7 @@ onMounted(() => {
          type: "circle",
          source: "locations",
          filter: ["!", ["has", "point_count"]],
+
          paint: {
             "circle-color": "#F07E19",
             "circle-radius": 8,

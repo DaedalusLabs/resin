@@ -70,8 +70,6 @@ const props = defineProps({
    },
 });
 
-console.log(props.property.address);
-
 const isFavorite = ref(locationsStore.isFavorite(props.property.id));
 
 const emit = defineEmits(["open-gallery"]);
