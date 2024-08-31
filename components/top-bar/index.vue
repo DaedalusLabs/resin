@@ -15,13 +15,11 @@
             :query="query"
             @update:query="updateQuery"
          />
-         <FlowbiteIconButton
-            icon="filter"
-            description="filter properties"
-         />
+         <FlowbiteIconButton icon="filter" description="filter properties" />
       </div>
       <TopBarDropdown
          :filtered-suggestions="filteredSuggestions"
+         :query="query"
          @update:query="updateQuery"
       />
    </div>

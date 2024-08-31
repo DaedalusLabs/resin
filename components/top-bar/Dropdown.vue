@@ -8,13 +8,12 @@
          <li
             v-for="(suggestion, index) in filteredSuggestions"
             :key="index"
-            class="flex cursor-pointer items-center px-4 py-2 text-sm text-gray-400 hover:text-resin-500"
+            class="flex cursor-pointer items-center px-4 py-2 text-sm text-gray-400"
             @click="selectSuggestion(suggestion)"
          >
             <PhMagnifyingGlass :size="12" class="mr-2 flex-shrink-0" />
-            <span class="truncate">
-               {{ suggestion.address.street }}, {{ suggestion.address.city }},
-               {{ suggestion.address.country }}
+            <span class="truncate font-semibold hover:text-resin-500">
+               <span v-html="highlightQuery(suggestion)" />
             </span>
          </li>
       </ul>
@@ -24,9 +23,13 @@
 <script setup>
 import { PhMagnifyingGlass } from "@phosphor-icons/vue";
 
-defineProps({
+const props = defineProps({
    filteredSuggestions: {
       type: Array,
+      required: true,
+   },
+   query: {
+      type: String,
       required: true,
    },
 });
@@ -36,5 +39,11 @@ const emit = defineEmits(["update:query"]);
 function selectSuggestion(suggestion) {
    const fullAddress = `${suggestion.address.street}, ${suggestion.address.city}, ${suggestion.address.country}`;
    emit("update:query", fullAddress, suggestion.lat, suggestion.lng);
+}
+
+function highlightQuery(suggestion) {
+   const fullAddress = `${suggestion.address.street}, ${suggestion.address.city}, ${suggestion.address.country}`;
+   const regex = new RegExp(`(${props.query})`, "gi");
+   return fullAddress.replace(regex, '<span class="text-resin-500">$1</span>');
 }
 </script>
