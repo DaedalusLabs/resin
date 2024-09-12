@@ -49,7 +49,7 @@
                ', ' +
                favorite.location.address.country
             "
-            :price="favorite.pricingDetails.rentPerMonth"
+            :price="favorite.pricingDetails.rentPerMonth.toString()"
             @remove="removeFavorite(favorite.id)"
          />
       </div>

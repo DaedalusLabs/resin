@@ -38,11 +38,10 @@
 </template>
 
 <script setup>
-import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
 import { usePropertiesStore } from "~/stores/properties";
 import { PhGps } from "@phosphor-icons/vue";
 import { fixNestedStrings } from "~/utils/jsonParser";
+import { Map } from "maplibre-gl";
 
 const propertiesStore = usePropertiesStore();
 const properties = propertiesStore.properties;
@@ -87,7 +86,7 @@ const calculateVisibleLocations = () => {
 };
 
 onMounted(() => {
-   map.value = new maplibregl.Map({
+   map.value = new Map({
       container: mapContainer.value,
       style: "https://api.jawg.io/styles/jawg-streets.json?access-token=ZhCsSw2AlckiNMZu9HZ1EubtLRNYKqP5xfDQmpI9BpouMugsh5NrknvugQUTGhNs",
       center: [props.mapCenter.lng, props.mapCenter.lat],
