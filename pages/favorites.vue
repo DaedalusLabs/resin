@@ -53,10 +53,10 @@
 </template>
 
 <script setup>
-import { useLocationsStore } from "~/stores/locations";
+import { usePropertiesStore } from "~/stores/properties";
 
 const favorites = ref([]);
-const locationsStore = useLocationsStore();
+const propertiesStore = usePropertiesStore();
 const route = useRoute();
 
 definePageMeta({
@@ -64,12 +64,12 @@ definePageMeta({
 });
 
 onMounted(() => {
-   favorites.value = locationsStore.favoriteLocations;
+   favorites.value = propertiesStore.favoriteLocations;
 });
 
 const removeFavorite = (id) => {
-   locationsStore.toggleFavorite(id);
-   favorites.value = locationsStore.favoriteLocations;
+   propertiesStore.toggleFavorite(id);
+   favorites.value = propertiesStore.favoriteLocations;
 };
 
 const shareData = {

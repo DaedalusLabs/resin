@@ -3,7 +3,7 @@
       <div class="flex items-center justify-between gap-2">
          <NuxtLink
             :to="localePath('map')"
-            @click="locationsStore.resetLocations()"
+            @click="propertiesStore.resetLocations()"
          >
             <FlowbiteIconButton
                :icon="showListIcon ? 'rows' : 'map'"
@@ -26,13 +26,13 @@
 </template>
 
 <script setup>
-const locationsStore = useLocationsStore();
+const propertiesStore = usePropertiesStore();
 const route = useRoute();
 const showListIcon = ref(route.fullPath.includes("map"));
 
 const query = ref("");
 const mapCenter = ref(null);
-const suggestions = locationsStore.locations;
+const suggestions = propertiesStore.properties;
 
 const emits = defineEmits(["update:map-center"]);
 
@@ -40,9 +40,13 @@ const filteredSuggestions = computed(() => {
    if (!query.value) return [];
    return suggestions.filter(
       (suggestion) =>
-         suggestion.address.city.toLowerCase().includes(query.value) ||
-         suggestion.address.street.toLowerCase().includes(query.value) ||
-         suggestion.address.country.toLowerCase().includes(query.value),
+         suggestion.location.address.city.toLowerCase().includes(query.value) ||
+         suggestion.location.address.street
+            .toLowerCase()
+            .includes(query.value) ||
+         suggestion.location.address.country
+            .toLowerCase()
+            .includes(query.value),
    );
 });
 

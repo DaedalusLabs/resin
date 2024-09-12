@@ -37,12 +37,17 @@ const props = defineProps({
 const emit = defineEmits(["update:query"]);
 
 function selectSuggestion(suggestion) {
-   const fullAddress = `${suggestion.address.street}, ${suggestion.address.city}, ${suggestion.address.country}`;
-   emit("update:query", fullAddress, suggestion.lat, suggestion.lng);
+   const fullAddress = `${suggestion.location.address.street}, ${suggestion.location.address.city}, ${suggestion.location.address.country}`;
+   emit(
+      "update:query",
+      fullAddress,
+      suggestion.location.coordinates.latitude,
+      suggestion.location.coordinates.longitude,
+   );
 }
 
 function highlightQuery(suggestion) {
-   const fullAddress = `${suggestion.address.street}, ${suggestion.address.city}, ${suggestion.address.country}`;
+   const fullAddress = `${suggestion.location.address.street}, ${suggestion.location.address.city}, ${suggestion.location.address.country}`;
    const regex = new RegExp(`(${props.query})`, "gi");
    return fullAddress.replace(regex, '<span class="text-resin-500">$1</span>');
 }

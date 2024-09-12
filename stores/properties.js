@@ -1,36 +1,36 @@
 import { defineStore } from "pinia";
 
-export const useLocationsStore = defineStore("locations", {
+export const usePropertiesStore = defineStore("properties", {
    state: () => {
       return {
-         locations: [],
-         filteredLocations: [],
+         properties: [],
+         filteredProperties: [],
          favorites: [],
       };
    },
    getters: {
       getLocations() {
-         return this.locations;
+         return this.properties;
       },
       getFilteredLocations() {
-         return this.filteredLocations;
+         return this.filteredProperties;
       },
       areFiltersActive() {
-         return this.locations.length !== this.filteredLocations.length;
+         return this.properties.length !== this.filteredProperties.length;
       },
       favoriteLocations() {
-         return this.locations.filter((location) =>
+         return this.properties.filter((location) =>
             this.favorites.includes(location.id),
          );
       },
    },
 
    actions: {
-      setFilteredLocations(filteredLocations) {
-         this.filteredLocations = filteredLocations;
+      setFilteredLocations(filteredProperties) {
+         this.filteredProperties = filteredProperties;
       },
       filterLocations(searchTerm) {
-         this.filteredLocations = this.locations.filter((location) => {
+         this.filteredProperties = this.properties.filter((location) => {
             return (
                location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                location.address.street
@@ -46,7 +46,7 @@ export const useLocationsStore = defineStore("locations", {
          });
       },
       resetLocations() {
-         this.filteredLocations = this.locations;
+         this.filteredProperties = this.properties;
       },
       toggleFavorite(locationId) {
          if (this.favorites.includes(locationId)) {

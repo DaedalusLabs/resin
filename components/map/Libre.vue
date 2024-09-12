@@ -40,12 +40,12 @@
 <script setup>
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useLocationsStore } from "~/stores/locations";
+import { usePropertiesStore } from "~/stores/properties";
 import { PhGps } from "@phosphor-icons/vue";
 import { fixNestedStrings } from "~/utils/jsonParser";
 
-const locationsStore = useLocationsStore();
-const locations = locationsStore.locations;
+const propertiesStore = usePropertiesStore();
+const properties = propertiesStore.properties;
 const zoom = ref(6);
 const mapContainer = ref(null);
 const map = ref(null);
@@ -57,7 +57,7 @@ const props = defineProps({
    mapCenter: {
       type: Object,
       required: false,
-      default: () => ({ lat: 47.41322, lng: -1.219482 }),
+      default: () => ({ lat: 8.852036, lng: -57.154996 }),
    },
 });
 
@@ -76,11 +76,14 @@ const getUserLocation = () => {
 
 const calculateVisibleLocations = () => {
    const bounds = map.value.getBounds();
-   const visibleLocations = locations.filter((location) =>
-      bounds.contains([location.lng, location.lat]),
+   const visibleLocations = properties.filter((property) =>
+      bounds.contains([
+         property.location.coordinates.longitude,
+         property.location.coordinates.latitude,
+      ]),
    );
    visibleLocationsAmount.value = visibleLocations.length;
-   locationsStore.setFilteredLocations(visibleLocations);
+   propertiesStore.setFilteredLocations(visibleLocations);
 };
 
 onMounted(() => {
@@ -94,17 +97,20 @@ onMounted(() => {
    map.value.on("load", () => {
       const geojson = {
          type: "FeatureCollection",
-         features: locations.map((location) => ({
+         features: properties.map((location) => ({
             type: "Feature",
             geometry: {
                type: "Point",
-               coordinates: [location.lng, location.lat],
+               coordinates: [
+                  location.location.coordinates.longitude,
+                  location.location.coordinates.latitude,
+               ],
             },
             properties: location,
          })),
       };
 
-      map.value.addSource("locations", {
+      map.value.addSource("properties", {
          type: "geojson",
          data: geojson,
          cluster: true,
@@ -116,7 +122,7 @@ onMounted(() => {
       map.value.addLayer({
          id: "clusters",
          type: "circle",
-         source: "locations",
+         source: "properties",
          filter: ["has", "point_count"],
          paint: {
             "circle-stroke-width": 3,
@@ -146,7 +152,7 @@ onMounted(() => {
       map.value.addLayer({
          id: "cluster-count",
          type: "symbol",
-         source: "locations",
+         source: "properties",
          filter: ["has", "point_count"],
          layout: {
             "text-field": "{point_count_abbreviated}",
@@ -161,7 +167,7 @@ onMounted(() => {
       map.value.addLayer({
          id: "unclustered-point",
          type: "circle",
-         source: "locations",
+         source: "properties",
          filter: ["!", ["has", "point_count"]],
 
          paint: {
@@ -183,7 +189,7 @@ onMounted(() => {
          });
          const clusterId = features[0].properties.cluster_id;
          const zoom = await map.value
-            .getSource("locations")
+            .getSource("properties")
             .getClusterExpansionZoom(clusterId);
          map.value.easeTo({
             center: features[0].geometry.coordinates,
@@ -202,7 +208,7 @@ watch(
    (newCenter) => {
       if (map.value && newCenter) {
          map.value.setCenter([newCenter.lng, newCenter.lat]);
-         map.value.setZoom(20);
+         map.value.setZoom(15);
       }
    },
    { immediate: true },

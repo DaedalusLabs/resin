@@ -28,15 +28,15 @@
 </template>
 
 <script setup>
-import { useLocationsStore } from "~/stores/locations";
+import { usePropertiesStore } from "~/stores/properties";
 const isLoading = ref(true);
 const properties = ref([]);
 
 onMounted(() => {
    setTimeout(() => {
       isLoading.value = false;
-      const locationsStore = useLocationsStore();
-      properties.value = locationsStore.filteredLocations;
+      const propertiesStore = usePropertiesStore();
+      properties.value = propertiesStore.filteredLocations;
    }, 3000);
 });
 

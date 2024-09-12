@@ -2,7 +2,7 @@
    <div class="overflow-hidden rounded-2xl bg-white shadow-lg">
       <div class="relative">
          <FlowbiteCarousel
-            :items="property.imageUrls"
+            :items="property.images"
             class="z-0 h-48 w-full object-cover md:h-72 lg:h-96"
          />
          <button
@@ -16,7 +16,7 @@
       <div class="flex flex-col gap-2 p-4">
          <div class="flex items-center justify-between">
             <h3 class="text-lg font-bold text-resin-500">
-               {{ property.address.street }}
+               {{ property.location.address.street }}
             </h3>
             <PhHeartStraight
                :size="21"
@@ -27,21 +27,26 @@
             />
          </div>
          <p class="text-gray-600">
-            {{ property.address.city }}, {{ property.address.country }}
+            {{ property.location.address.city }},
+            {{ property.location.address.country }}
          </p>
          <p class="text-sm font-bold text-gray-800">
-            ${{ property.price }} per month
+            ${{ property.pricingDetails.rentPerMonth }} per month
          </p>
       </div>
       <div class="flex items-center justify-between bg-gray-100 p-4 text-sm">
          <div class="flex items-center gap-4">
             <p class="flex items-center gap-1">
                <PhRuler :size="20" class="inline" />
-               <span class="text-gray-500">{{ property.size }} m²</span>
+               <span class="text-gray-500"
+                  >{{ property.propertyDetails.size.houseSizeM2 }} m²</span
+               >
             </p>
             <p class="flex items-center gap-1">
                <PhBed :size="20" class="inline" />
-               <span class="text-gray-500">{{ property.beds }} Beds</span>
+               <span class="text-gray-500"
+                  >{{ property.propertyDetails.bedrooms }} Beds</span
+               >
             </p>
          </div>
          <FlowbiteButton :text="$t('details')" @click="openDetails" />
@@ -51,12 +56,12 @@
 
 <script setup>
 import { PhBed, PhRuler, PhHeartStraight, PhImages } from "@phosphor-icons/vue";
-import { useLocationsStore } from "~/stores/locations";
-const locationsStore = useLocationsStore();
+import { usePropertiesStore } from "~/stores/properties";
+const propertiesStore = usePropertiesStore();
 
 const toggleFavorite = () => {
    isFavorite.value = !isFavorite.value;
-   locationsStore.toggleFavorite(props.property.id);
+   propertiesStore.toggleFavorite(props.property.id);
 };
 
 const props = defineProps({
@@ -70,7 +75,7 @@ const props = defineProps({
    },
 });
 
-const isFavorite = ref(locationsStore.isFavorite(props.property.id));
+const isFavorite = ref(propertiesStore.isFavorite(props.property.id));
 
 const emit = defineEmits(["open-gallery"]);
 

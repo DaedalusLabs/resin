@@ -19,7 +19,7 @@
 <script setup>
 import { ref } from "vue";
 
-const mapCenter = ref({ lat: 47.41322, lng: -1.219482 });
+const mapCenter = ref({ lat: 5.852036, lng: -55.154996 });
 
 function updateMapCenter(lat, lng) {
    mapCenter.value = { lat, lng };
