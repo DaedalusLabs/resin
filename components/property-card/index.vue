@@ -34,7 +34,7 @@
             ${{ property.pricingDetails.rentPerMonth }} per month
          </p>
       </div>
-      <div class="flex items-center justify-between bg-gray-100 p-4 text-sm">
+      <div class="flex items-center justify-between p-4 pt-0 text-sm">
          <div class="flex items-center gap-4">
             <p class="flex items-center gap-1">
                <PhRuler :size="20" class="inline" />

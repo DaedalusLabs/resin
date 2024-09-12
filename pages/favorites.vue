@@ -42,10 +42,14 @@
          <FavoritesCard
             v-for="favorite in favorites"
             :key="favorite.id"
-            :image="favorite.imageUrls[0]"
-            :title="favorite.address.street"
-            :location="favorite.address.city + ', ' + favorite.address.country"
-            :price="favorite.price"
+            :image="favorite.images[0]"
+            :title="favorite.location.address.street"
+            :location="
+               favorite.location.address.city +
+               ', ' +
+               favorite.location.address.country
+            "
+            :price="favorite.pricingDetails.rentPerMonth"
             @remove="removeFavorite(favorite.id)"
          />
       </div>

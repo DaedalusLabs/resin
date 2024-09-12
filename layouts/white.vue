@@ -1,6 +1,6 @@
 <template>
    <div class="flex h-screen flex-col bg-hex-white bg-cover bg-center">
-      <main class="flex-1 pb-20">
+      <main class="h-full flex-1 overflow-scroll pb-14">
          <slot />
       </main>
       <BottomBar />

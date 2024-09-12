@@ -16,7 +16,7 @@
             :key="property.id"
             :property="property"
             class="w-full md:w-96"
-            @open-gallery="openGallery(property.imageUrls)"
+            @open-gallery="openGallery(property.images)"
          />
       </div>
       <FlowbiteImageDrawer
@@ -36,7 +36,7 @@ onMounted(() => {
    setTimeout(() => {
       isLoading.value = false;
       const propertiesStore = usePropertiesStore();
-      properties.value = propertiesStore.filteredLocations;
+      properties.value = propertiesStore.filteredProperties;
    }, 3000);
 });
 

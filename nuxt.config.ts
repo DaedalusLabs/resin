@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       defaultLocale: "en-US",
       detectBrowserLanguage: false,
       vueI18n: "./i18n.config.ts",
+      lazy: false,
    },
 
    fonts: {

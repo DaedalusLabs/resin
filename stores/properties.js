@@ -30,16 +30,16 @@ export const usePropertiesStore = defineStore("properties", {
          this.filteredProperties = filteredProperties;
       },
       filterLocations(searchTerm) {
-         this.filteredProperties = this.properties.filter((location) => {
+         this.filteredProperties = this.properties.filter((property) => {
             return (
-               location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-               location.address.street
+               property.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+               property.location.address.street
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase()) ||
-               location.address.city
+               property.location.address.city
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase()) ||
-               location.address.country
+               property.location.address.country
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase())
             );
