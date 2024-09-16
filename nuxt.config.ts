@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       //   "@vite-pwa/nuxt", Enable this module in Production
       "@nuxt/fonts",
       "@pinia/nuxt",
+      "@vueuse/nuxt",
    ],
 
    i18n: {

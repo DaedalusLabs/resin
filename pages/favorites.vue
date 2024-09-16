@@ -2,24 +2,8 @@
    <section class="mx-auto flex w-10/12 flex-col py-20">
       <div class="mb-5 flex items-center justify-between text-pirate-950">
          <h1 class="text-2xl font-extrabold leading-tight">Favorites</h1>
-         <button @click="sharePage">
-            <svg
-               class="h-6 w-6 text-gray-800 dark:text-white"
-               aria-hidden="true"
-               xmlns="http://www.w3.org/2000/svg"
-               width="24"
-               height="24"
-               fill="none"
-               viewBox="0 0 24 24"
-            >
-               <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2M12 4v12m0-12 4 4m-4-4L8 8"
-               />
-            </svg>
+         <button :v-if="isSupported" @click="startShare">
+            <PhExport :size="28" class="text-xl text-pirate-950" />
          </button>
       </div>
       <!-- if no favorites yet -->
@@ -42,14 +26,7 @@
          <FavoritesCard
             v-for="favorite in favorites"
             :key="favorite.id"
-            :image="favorite.images[0]"
-            :title="favorite.location.address.street"
-            :location="
-               favorite.location.address.city +
-               ', ' +
-               favorite.location.address.country
-            "
-            :price="favorite.pricingDetails.rentPerMonth.toString()"
+            :property="favorite"
             @remove="removeFavorite(favorite.id)"
          />
       </div>
@@ -58,10 +35,21 @@
 
 <script setup>
 import { usePropertiesStore } from "~/stores/properties";
+import { useShare } from "@vueuse/core";
+import { PhExport } from "@phosphor-icons/vue";
+
+const { share, isSupported } = useShare();
+
+function startShare() {
+   share({
+      title: "Resin",
+      text: "Check out these listings on Resin",
+      url: location.href,
+   });
+}
 
 const favorites = ref([]);
 const propertiesStore = usePropertiesStore();
-const route = useRoute();
 
 definePageMeta({
    layout: "white",
@@ -74,22 +62,5 @@ onMounted(() => {
 const removeFavorite = (id) => {
    propertiesStore.toggleFavorite(id);
    favorites.value = propertiesStore.favoriteLocations;
-};
-
-const shareData = {
-   title: "RESIN",
-   text: "Check out my favorite listings on RESIN",
-   url: route.fullPath,
-};
-
-const sharePage = async () => {
-   try {
-      await navigator.share(shareData); // TODO: Add other share logic
-   } catch (err) {
-      console.error("Error sharing:", err);
-      alert(
-         "Error sharing your favorite listings, this feature is not supported on your device",
-      );
-   }
 };
 </script>

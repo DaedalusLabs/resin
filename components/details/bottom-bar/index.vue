@@ -6,7 +6,7 @@
          <FlowbiteButton
             text="Request Tour"
             :show-icon="false"
-            class="bg-pirate-700"
+            class="secondary"
          />
          <NuxtLink
             :to="localePath(`/properties/${route.params.id}/rent-to-own`)"
@@ -26,3 +26,9 @@ const buttonText = computed(() => {
       : "Rent-to-own";
 });
 </script>
+
+<style scoped>
+.secondary {
+   @apply bg-pirate-700 !important;
+}
+</style>

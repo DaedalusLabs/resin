@@ -32,6 +32,8 @@
       "@nuxt/eslint": "^0.5.1",
       "@nuxt/image": "^1.7.0",
       "@nuxtjs/tailwindcss": "^6.12.1",
+      "@vueuse/core": "^11.1.0",
+      "@vueuse/nuxt": "^11.1.0",
       "autoprefixer": "^10.4.20",
       "eslint": "^9.9.0",
       "eslint-config-prettier": "^9.1.0",

@@ -1,8 +1,9 @@
 <template>
    <div
       v-touch:swipe.left="swipeHandler"
-      class="group relative flex items-center rounded-lg border-2 border-pirate-100 bg-white p-4 shadow-md transition-transform duration-300 ease-in-out"
+      class="group relative flex items-center rounded-lg border-2 border-pirate-100 bg-white p-4 shadow-sm transition-transform duration-300 ease-in-out"
       :class="{ '-translate-x-96 transform': isRemoving }"
+      @click="openDetails"
    >
       <NuxtImg
          :src="property.images[0]"
@@ -11,14 +12,14 @@
       />
       <div class="min-w-0 flex-1">
          <h3 class="truncate text-lg font-bold text-resin-500">
-            {{ property.name }}
+            {{ property.location.address.street }}
          </h3>
          <p class="text-sm text-pirate-950">
-            {{ property.location.address.street }}
+            {{ property.location.address.city }},
+            {{ property.location.address.country }}
          </p>
          <p class="text-sm font-bold text-pirate-950">
-            ${{ property.pricingDetails.rentPerMonth.toLocaleString() }} per
-            month
+            ${{ property.pricingDetails.rentPerMonth }} per month
          </p>
       </div>
       <div
@@ -61,14 +62,21 @@ const handleRemove = () => {
    emit("remove");
 };
 
-defineProps({
+const openDetails = () => {
+   const localeRoute = useLocaleRoute();
+   const route = localeRoute({
+      name: "properties-id",
+      params: { id: props.property.id.toString() },
+   });
+   if (route) {
+      return navigateTo(route.fullPath);
+   }
+};
+
+const props = defineProps({
    property: {
       type: Object,
       required: true,
-   },
-   canRemove: {
-      type: Boolean,
-      default: true,
    },
 });
 </script>
