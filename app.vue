@@ -268,7 +268,6 @@ async function getProperties() {
 
 propertiesStore.properties = await getProperties();
 propertiesStore.filteredProperties = propertiesStore.properties;
-console.log(propertiesStore.properties);
 </script>
 
 <style>

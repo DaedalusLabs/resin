@@ -6,6 +6,7 @@ export const usePropertiesStore = defineStore("properties", {
          properties: [],
          filteredProperties: [],
          favorites: [],
+         hasSeenMapToast: false,
       };
    },
    getters: {

@@ -51,6 +51,7 @@ const map = ref(null);
 const visibleLocationsAmount = ref(0);
 const userLocation = ref(null);
 const clickedLocation = ref(null);
+const route = useRoute();
 
 const props = defineProps({
    mapCenter: {
@@ -200,6 +201,14 @@ onMounted(() => {
       map.value.on("moveend", calculateVisibleLocations);
       map.value.on("zoomend", calculateVisibleLocations);
    });
+
+   if (route.query.lat && route.query.lng) {
+      map.value.flyTo({
+         center: [route.query.lng, route.query.lat],
+         zoom: 15,
+         essential: true,
+      });
+   }
 });
 
 watch(
