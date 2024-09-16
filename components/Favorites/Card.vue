@@ -61,7 +61,7 @@ const handleRemove = () => {
    emit("remove");
 };
 
-const props = defineProps({
+defineProps({
    property: {
       type: Object,
       required: true,
@@ -71,6 +71,4 @@ const props = defineProps({
       default: true,
    },
 });
-
-console.log(props.property);
 </script>
