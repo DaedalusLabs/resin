@@ -8,7 +8,15 @@
             :show-icon="false"
             class="bg-pirate-700"
          />
-         <FlowbiteButton text="Rent-to-own" />
+         <NuxtLink
+            :to="localePath(`/properties/${route.params.id}/rent-to-own`)"
+         >
+            <FlowbiteButton text="Rent-to-own" />
+         </NuxtLink>
       </div>
    </div>
 </template>
+
+<script setup>
+const route = useRoute();
+</script>

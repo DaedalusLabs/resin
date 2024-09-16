@@ -5,19 +5,24 @@
       :class="{ '-translate-x-96 transform': isRemoving }"
    >
       <NuxtImg
-         :src="image"
+         :src="property.images[0]"
          alt="Favorite image"
          class="mr-4 h-16 w-16 rounded-md object-cover object-center"
       />
       <div class="min-w-0 flex-1">
          <h3 class="truncate text-lg font-bold text-resin-500">
-            {{ title }}
+            {{ property.name }}
          </h3>
-         <p class="text-sm text-pirate-950">{{ location }}</p>
-         <p class="text-sm font-bold text-pirate-950">${{ price }} per month</p>
+         <p class="text-sm text-pirate-950">
+            {{ property.location.address.street }}
+         </p>
+         <p class="text-sm font-bold text-pirate-950">
+            ${{ property.pricingDetails.rentPerMonth.toLocaleString() }} per
+            month
+         </p>
       </div>
-      <!-- Trash icon -->
       <div
+         v-if="canRemove"
          class="absolute right-4 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-red-600 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
          @click="handleRemove"
       >
@@ -56,22 +61,16 @@ const handleRemove = () => {
    emit("remove");
 };
 
-defineProps({
-   image: {
-      type: String,
+const props = defineProps({
+   property: {
+      type: Object,
       required: true,
    },
-   title: {
-      type: String,
-      required: true,
-   },
-   location: {
-      type: String,
-      required: true,
-   },
-   price: {
-      type: String,
-      required: true,
+   canRemove: {
+      type: Boolean,
+      default: true,
    },
 });
+
+console.log(props.property);
 </script>
