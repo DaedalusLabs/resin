@@ -14,12 +14,62 @@ import { usePropertiesStore } from "~/stores/properties";
 const propertiesStore = usePropertiesStore();
 
 async function getProperties() {
-   // mock API call
+   const riversideMansion = {
+      id: 4,
+      name: "Riverside Mansion",
+      location: {
+         coordinates: {
+            latitude: 5.85015,
+            longitude: -55.133602,
+         },
+         address: {
+            street: "Waterkant 23",
+            city: "Paramaribo",
+            country: "Suriname",
+         },
+      },
+      images: [
+         "/images/mock/house.png",
+         "/images/mock/house.png",
+         "/images/mock/house.png",
+      ],
+      pricingDetails: {
+         rentPerMonth: 2500, // In USD
+         propertyPrice: 750000, // In USD
+      },
+      propertyDetails: {
+         size: {
+            houseSizeM2: 350, // Size of the house in square meters
+            lotSizeM2: 600, // Total lot size in square meters
+         },
+         bedrooms: 5, // Number of bedrooms
+         keyFeatures: [
+            "Riverside view",
+            "Private dock",
+            "Large patio",
+            "Swimming pool",
+            "Solar panels",
+         ],
+         additionalDetails: {
+            type: "Mansion",
+            yearBuilt: 2015,
+            hasGarden: true,
+            numberOfFloors: 2,
+            heating: "Central heating",
+            cooling: "Central air conditioning",
+            parking: "2-car garage",
+         },
+      },
+      summary:
+         "An expansive mansion located by the river, complete with a private dock and a large patio for outdoor entertaining. This luxurious property offers stunning views and the highest standard of modern living.",
+      nearbyProperties: [],
+      popupHtml: "<h1>Luxury Riverside Mansion</h1>",
+   };
+
    return [
       {
          id: 1,
          name: "Luxury Villa",
-
          location: {
             coordinates: {
                latitude: 5.852036,
@@ -31,18 +81,15 @@ async function getProperties() {
                country: "Suriname",
             },
          },
-
          images: [
             "/images/mock/house.png",
             "/images/mock/house.png",
             "/images/mock/house.png",
          ],
-
          pricingDetails: {
             rentPerMonth: 1950,
             propertyPrice: 468000,
          },
-
          propertyDetails: {
             size: {
                houseSizeM2: 195, // Size of the house in square meters
@@ -65,106 +112,14 @@ async function getProperties() {
                parking: "2-car garage",
             },
          },
-
          summary:
             "This exquisite single-family residence, built in 2021, offers a blend of modern design and urban convenience, making it the perfect choice for contemporary living. Step into luxury with this apartment's open-concept layout, which seamlessly integrates the living, dining, and kitchen areas.",
-
-         nearbyProperties: [
-            {
-               id: 4,
-               name: "Riverside Mansion",
-
-               location: {
-                  coordinates: {
-                     latitude: 5.85015,
-                     longitude: -55.133602,
-                  },
-                  address: {
-                     street: "Waterkant 23",
-                     city: "Paramaribo",
-                     country: "Suriname",
-                  },
-               },
-
-               images: ["/images/mock/house.png"],
-
-               pricingDetails: {
-                  rentPerMonth: 2500, // In USD
-                  propertyPrice: 750000, // In USD
-               },
-
-               propertyDetails: {
-                  size: {
-                     houseSizeM2: 350, // Size of the house in square meters
-                     lotSizeM2: 600, // Total lot size in square meters
-                  },
-                  bedrooms: 5, // Number of bedrooms
-                  keyFeatures: [
-                     "Riverside view",
-                     "Private dock",
-                     "Large patio",
-                     "Swimming pool",
-                     "Solar panels",
-                  ],
-                  additionalDetails: {
-                     type: "Mansion",
-                     yearBuilt: 2015,
-                     hasGarden: true,
-                     numberOfFloors: 2,
-                     heating: "Central heating",
-                     cooling: "Central air conditioning",
-                     parking: "2-car garage",
-                  },
-               },
-
-               summary:
-                  "An expansive mansion located by the river, complete with a private dock and a large patio for outdoor entertaining. This luxurious property offers stunning views and the highest standard of modern living.",
-
-               nearbyProperties: [
-                  {
-                     id: 9,
-                     name: "Waterkant 27",
-                     location: {
-                        city: "Paramaribo",
-                        country: "Suriname",
-                     },
-                     pricingDetails: {
-                        rentPerMonth: 2300,
-                     },
-                     propertyDetails: {
-                        houseSizeM2: 340,
-                        bedrooms: 5,
-                     },
-                     imageUrl: "/images/mock/house.png",
-                  },
-                  {
-                     id: 10,
-                     name: "Waterkant 30",
-                     location: {
-                        city: "Paramaribo",
-                        country: "Suriname",
-                     },
-                     pricingDetails: {
-                        rentPerMonth: 2450,
-                     },
-                     propertyDetails: {
-                        houseSizeM2: 355,
-                        bedrooms: 6,
-                     },
-                     imageUrl: "/images/mock/house.png",
-                  },
-               ],
-
-               popupHtml: "<h1>Luxury Riverside Mansion</h1>",
-            },
-         ],
-
+         nearbyProperties: [riversideMansion],
          popupHtml: "<h1>This is Nantes</h1>",
       },
       {
          id: 2,
          name: "Modern Bungalow",
-
          location: {
             coordinates: {
                latitude: 5.866942,
@@ -176,14 +131,11 @@ async function getProperties() {
                country: "Suriname",
             },
          },
-
          images: ["/images/mock/house.png"],
-
          pricingDetails: {
             rentPerMonth: 1400, // In USD
             propertyPrice: 350000, // In USD
          },
-
          propertyDetails: {
             size: {
                houseSizeM2: 180, // Size of the house in square meters
@@ -206,18 +158,14 @@ async function getProperties() {
                parking: "1-car garage",
             },
          },
-
          summary:
             "A modern bungalow built for comfort, located in a quiet neighborhood in Paramaribo. Features a spacious open-concept living area, energy-efficient windows, and a cozy fireplace for a perfect family home.",
-
-         nearbyProperties: [],
-
+         nearbyProperties: [riversideMansion],
          popupHtml: "<h1>Modern Bungalow in Paramaribo</h1>",
       },
       {
          id: 3,
          name: "Cozy Cottage",
-
          location: {
             coordinates: {
                latitude: 5.852036,
@@ -229,14 +177,15 @@ async function getProperties() {
                country: "Suriname",
             },
          },
-
-         images: ["/images/mock/house.png"],
-
+         images: [
+            "/images/mock/house.png",
+            "/images/mock/house.png",
+            "/images/mock/house.png",
+         ],
          pricingDetails: {
             rentPerMonth: 1100, // In USD
             propertyPrice: 280000, // In USD
          },
-
          propertyDetails: {
             size: {
                houseSizeM2: 130, // Size of the house in square meters
@@ -258,72 +207,15 @@ async function getProperties() {
                parking: "Street parking",
             },
          },
-
          summary:
             "This cozy cottage offers a private garden and a recently renovated kitchen. Located in a quiet area, it’s the perfect getaway for those seeking comfort and tranquility.",
-
-         nearbyProperties: [],
-
+         nearbyProperties: [riversideMansion],
          popupHtml: "<h1>Cozy Cottage in Kwattaweg</h1>",
       },
-      {
-         id: 4,
-         name: "Riverside Mansion",
-
-         location: {
-            coordinates: {
-               latitude: 5.85015,
-               longitude: -55.133602,
-            },
-            address: {
-               street: "Waterkant 23",
-               city: "Paramaribo",
-               country: "Suriname",
-            },
-         },
-
-         images: ["/images/mock/house.png"],
-
-         pricingDetails: {
-            rentPerMonth: 2500, // In USD
-            propertyPrice: 750000, // In USD
-         },
-
-         propertyDetails: {
-            size: {
-               houseSizeM2: 350, // Size of the house in square meters
-               lotSizeM2: 600, // Total lot size in square meters
-            },
-            bedrooms: 5, // Number of bedrooms
-            keyFeatures: [
-               "Riverside view",
-               "Private dock",
-               "Large patio",
-               "Swimming pool",
-               "Solar panels",
-            ],
-            additionalDetails: {
-               type: "Mansion",
-               yearBuilt: 2015,
-               hasGarden: true,
-               numberOfFloors: 2,
-               heating: "Central heating",
-               cooling: "Central air conditioning",
-               parking: "2-car garage",
-            },
-         },
-
-         summary:
-            "An expansive mansion located by the river, complete with a private dock and a large patio for outdoor entertaining. This luxurious property offers stunning views and the highest standard of modern living.",
-
-         nearbyProperties: [],
-
-         popupHtml: "<h1>Luxury Riverside Mansion</h1>",
-      },
+      riversideMansion, // Directly use the Riverside Mansion variable
       {
          id: 5,
          name: "Suburban Family Home",
-
          location: {
             coordinates: {
                latitude: 5.850903,
@@ -335,14 +227,15 @@ async function getProperties() {
                country: "Suriname",
             },
          },
-
-         images: ["/images/mock/house.png"],
-
+         images: [
+            "/images/mock/house.png",
+            "/images/mock/house.png",
+            "/images/mock/house.png",
+         ],
          pricingDetails: {
             rentPerMonth: 1600, // In USD
             propertyPrice: 400000, // In USD
          },
-
          propertyDetails: {
             size: {
                houseSizeM2: 220, // Size of the house in square meters
@@ -365,153 +258,13 @@ async function getProperties() {
                parking: "2-car garage",
             },
          },
-
          summary:
             "This suburban family home offers ample space for a growing family, with a large living area, private garden, and a nearby playground. Located in a family-friendly neighborhood in Paramaribo.",
-
-         nearbyProperties: [
-            {
-               id: 4,
-               name: "Riverside Mansion",
-
-               location: {
-                  coordinates: {
-                     latitude: 5.85015,
-                     longitude: -55.133602,
-                  },
-                  address: {
-                     street: "Waterkant 23",
-                     city: "Paramaribo",
-                     country: "Suriname",
-                  },
-               },
-
-               images: ["/images/mock/house.png"],
-
-               pricingDetails: {
-                  rentPerMonth: 2500, // In USD
-                  propertyPrice: 750000, // In USD
-               },
-
-               propertyDetails: {
-                  size: {
-                     houseSizeM2: 350, // Size of the house in square meters
-                     lotSizeM2: 600, // Total lot size in square meters
-                  },
-                  bedrooms: 5, // Number of bedrooms
-                  keyFeatures: [
-                     "Riverside view",
-                     "Private dock",
-                     "Large patio",
-                     "Swimming pool",
-                     "Solar panels",
-                  ],
-                  additionalDetails: {
-                     type: "Mansion",
-                     yearBuilt: 2015,
-                     hasGarden: true,
-                     numberOfFloors: 2,
-                     heating: "Central heating",
-                     cooling: "Central air conditioning",
-                     parking: "2-car garage",
-                  },
-               },
-
-               summary:
-                  "An expansive mansion located by the river, complete with a private dock and a large patio for outdoor entertaining. This luxurious property offers stunning views and the highest standard of modern living.",
-
-               nearbyProperties: [
-                  {
-                     id: 9,
-                     name: "Waterkant 27",
-                     location: {
-                        city: "Paramaribo",
-                        country: "Suriname",
-                     },
-                     pricingDetails: {
-                        rentPerMonth: 2300,
-                     },
-                     propertyDetails: {
-                        houseSizeM2: 340,
-                        bedrooms: 5,
-                     },
-                     imageUrl: "/images/mock/house.png",
-                  },
-                  {
-                     id: 10,
-                     name: "Waterkant 30",
-                     location: {
-                        city: "Paramaribo",
-                        country: "Suriname",
-                     },
-                     pricingDetails: {
-                        rentPerMonth: 2450,
-                     },
-                     propertyDetails: {
-                        houseSizeM2: 355,
-                        bedrooms: 6,
-                     },
-                     imageUrl: "/images/mock/house.png",
-                  },
-               ],
-
-               popupHtml: "<h1>Luxury Riverside Mansion</h1>",
-            },
-         ],
-
-         popupHtml: "<h1>Family Home in Welgedacht A</h1>",
+         nearbyProperties: [riversideMansion],
+         popupHtml: "<h1>Spacious Suburban Home</h1>",
       },
    ];
 }
 
-const properties = await getProperties();
-propertiesStore.properties = properties;
-propertiesStore.filteredProperties = properties;
+propertiesStore.properties = await getProperties();
 </script>
-
-<style>
-::-moz-selection {
-   /* Code for Firefox */
-   color: white;
-   background: #f07e19;
-}
-
-::selection {
-   color: white;
-   background: #f07e19;
-}
-
-html {
-   scroll-behavior: smooth;
-}
-
-/* font Inter for all text */
-* {
-   font-family: "Inter", sans-serif;
-   font-optical-sizing: auto;
-   font-style: normal;
-   font-variation-settings: "slnt" 0;
-}
-
-/* clears the ‘X’ from Internet Explorer */
-input[type="search"]::-ms-clear {
-   display: none;
-   width: 0;
-   height: 0;
-}
-input[type="search"]::-ms-reveal {
-   display: none;
-   width: 0;
-   height: 0;
-} /* clears the ‘X’ from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-   display: none;
-}
-
-.z-top {
-   z-index: 1000;
-}
-</style>
