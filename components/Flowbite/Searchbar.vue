@@ -1,5 +1,5 @@
 <template>
-   <form @submit.prevent="onSubmit">
+   <form @submit.prevent>
       <label
          for="default-search"
          class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -48,8 +48,6 @@
 
 <script setup>
 import { PhXCircle } from "@phosphor-icons/vue";
-import { usePropertiesStore } from "~/stores/properties";
-const propertiesStore = usePropertiesStore();
 
 const props = defineProps({
    query: {
@@ -65,10 +63,6 @@ watchEffect(() => {
 });
 
 const emit = defineEmits(["update:query"]);
-
-function onSubmit() {
-   propertiesStore.addSearch(localQuery.value);
-}
 
 function onInput(event) {
    localQuery.value = event.target.value;

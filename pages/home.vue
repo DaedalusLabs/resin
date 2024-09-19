@@ -23,28 +23,26 @@
          Recent searches
       </h2>
       <div class="flex gap-4 overflow-scroll">
-         <p v-if="!propertiesStore.searches.length" class="text-pirate-950">
+         <p v-if="!searches.length" class="text-pirate-950">
             No recent searches
          </p>
          <HomeRecentSearch
-            v-for="search in propertiesStore.searches"
+            v-for="search in searches"
             :key="search"
-            class="flex-shrink-0"
+            class="w-1/2 flex-shrink-0"
             :search="search"
+            @click="updateQuery(search)"
          />
       </div>
       <h2 class="text-pirate-950leading-tight mb-3 mt-10 text-xl font-bold">
          Recently viewed
       </h2>
       <div class="flex gap-4 overflow-scroll">
-         <p
-            v-if="!propertiesStore.viewedProperties.length"
-            class="text-pirate-950"
-         >
+         <p v-if="!viewedProperties.length" class="text-pirate-950">
             No recently viewed properties
          </p>
          <FavoritesCard
-            v-for="property in propertiesStore.viewedProperties"
+            v-for="property in viewedProperties"
             :key="property"
             class="flex-shrink-0"
             :property="property"
@@ -53,6 +51,20 @@
       <h2 class="text-pirate-950leading-tight mb-3 mt-10 text-xl font-bold">
          Trending areas
       </h2>
+      <div class="flex flex-col gap-4">
+         <p
+            v-if="!propertiesStore.trendingAreas.length"
+            class="text-pirate-950"
+         >
+            No trending areas
+         </p>
+         <HomeAreaCard
+            v-for="area in propertiesStore.trendingAreas"
+            :key="area"
+            class="flex-shrink-0"
+            :area="area"
+         />
+      </div>
    </section>
 </template>
 
@@ -60,6 +72,8 @@
 import { usePropertiesStore } from "~/stores/properties";
 const propertiesStore = usePropertiesStore();
 const query = ref("");
+const searches = ref([propertiesStore.searches.reverse()]);
+const viewedProperties = ref([propertiesStore.viewedLocations.reverse()]);
 
 definePageMeta({
    layout: "white",
@@ -67,7 +81,7 @@ definePageMeta({
 
 const filteredSuggestions = computed(() => {
    if (!query.value) return [];
-   return suggestions.filter(
+   return propertiesStore.properties.filter(
       (suggestion) =>
          suggestion.location.address.city.toLowerCase().includes(query.value) ||
          suggestion.location.address.street
@@ -79,7 +93,30 @@ const filteredSuggestions = computed(() => {
    );
 });
 
-function updateQuery(newQuery) {
+function updateQuery(newQuery, latitude, longitude) {
    query.value = newQuery;
+   if ((latitude, longitude)) {
+      const localeRoute = useLocaleRoute();
+      const long = longitude;
+      const lat = latitude;
+      const route = localeRoute({
+         name: "map",
+         query: { lat, lng: long },
+      });
+      if (route) {
+         return navigateTo(route.fullPath);
+      }
+   }
 }
+
+watchEffect(() => {
+   searches.value = propertiesStore.searches.reverse();
+   viewedProperties.value = propertiesStore.viewedLocations.reverse();
+});
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+   display: none;
+}
+</style>
