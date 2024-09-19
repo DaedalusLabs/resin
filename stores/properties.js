@@ -9,6 +9,7 @@ export const usePropertiesStore = defineStore("properties", {
          searches: [],
          viewedProperties: [],
          trendingAreas: [],
+         hasSeenMapToast: false,
       };
    },
    getters: {
@@ -38,10 +39,8 @@ export const usePropertiesStore = defineStore("properties", {
          if (!this.viewedProperties.includes(propertyId)) {
             this.viewedProperties.push(propertyId);
          }
-         console.log(this.viewedProperties);
       },
       addSearch(searchTerm) {
-         console.log(searchTerm);
          this.searches.push(searchTerm);
       },
       setFilteredLocations(filteredProperties) {

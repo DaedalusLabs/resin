@@ -7,7 +7,11 @@
          <PhCaretLeft weight="bold" :size="28" class="text-xl text-white" />
       </NuxtLink>
       <div class="flex space-x-4">
-         <button class="rounded-full bg-white p-3 shadow">
+         <button
+            class="rounded-full bg-white p-3 shadow"
+            :v-if="isSupported"
+            @click="startShare"
+         >
             <PhExport :size="28" class="text-xl text-pirate-950" />
          </button>
          <button class="rounded-full bg-resin-500 p-3 shadow">
@@ -24,8 +28,19 @@
 
 <script setup>
 import { PhHeartStraight, PhExport, PhCaretLeft } from "@phosphor-icons/vue";
-
 import { usePropertiesStore } from "~/stores/properties";
+
+import { useShare } from "@vueuse/core";
+
+const { share, isSupported } = useShare();
+
+function startShare() {
+   share({
+      title: "Resin",
+      text: "Check out this property that I found on Resin",
+      url: location.href,
+   });
+}
 
 const propertiesStore = usePropertiesStore();
 
