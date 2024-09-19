@@ -22,6 +22,8 @@
 
 <script setup>
 import { PhMagnifyingGlass } from "@phosphor-icons/vue";
+import { usePropertiesStore } from "~/stores/properties";
+const propertiesStore = usePropertiesStore();
 
 const props = defineProps({
    filteredSuggestions: {
@@ -44,6 +46,7 @@ function selectSuggestion(suggestion) {
       suggestion.location.coordinates.latitude,
       suggestion.location.coordinates.longitude,
    );
+   propertiesStore.addSearch(fullAddress);
 }
 
 function highlightQuery(suggestion) {
