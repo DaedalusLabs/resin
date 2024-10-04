@@ -6,9 +6,15 @@
          <FlowbiteButton
             text="Request Tour"
             :show-icon="false"
-            class="bg-pirate-700"
+            class="secondary"
          />
          <FlowbiteButton text="Rent-to-own" />
       </div>
    </div>
 </template>
+
+<style scoped>
+.secondary {
+   @apply bg-pirate-700 !important;
+}
+</style>

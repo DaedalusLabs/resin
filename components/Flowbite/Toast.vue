@@ -9,11 +9,14 @@
          role="alert"
       >
          <button
-            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
-            @click="showToast = false"
+            class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
             aria-label="Close"
+            @click="
+               showToast = false;
+               propertiesStore.hasSeenMapToast = true;
+            "
          >
-            <PhX :size="18"  weight="bold"/>
+            <PhX :size="18" weight="bold" />
          </button>
 
          <div class="flex">
@@ -34,7 +37,10 @@
                <button
                   href="#"
                   class="inline-flex rounded-lg bg-resin-500 px-2.5 py-1.5 text-center text-xs font-medium text-white hover:bg-resin-600 focus:outline-none focus:ring-4 focus:ring-resin-300 dark:bg-resin-500 dark:hover:bg-resin-600 dark:focus:ring-resin-800"
-                  @click="showToast = false"
+                  @click="
+                     showToast = false;
+                     propertiesStore.hasSeenMapToast = true;
+                  "
                >
                   Continue
                </button>
@@ -46,5 +52,12 @@
 
 <script setup>
 import { PhX } from "@phosphor-icons/vue";
-const showToast = ref(true);
+
+import { usePropertiesStore } from "~/stores/properties";
+const propertiesStore = usePropertiesStore();
+const showToast = ref(false);
+
+watchEffect(() => {
+   showToast.value = !propertiesStore.hasSeenMapToast;
+});
 </script>

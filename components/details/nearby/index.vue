@@ -9,7 +9,7 @@
             v-for="nearbyProperty in property.nearbyProperties"
             :key="nearbyProperty.id"
          >
-            <PropertyCard :property="nearbyProperty" />
+            <PropertyCard :property="nearbyProperty" :show-media-icon="false" />
          </div>
       </div>
    </div>

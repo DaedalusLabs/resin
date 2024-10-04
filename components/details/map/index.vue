@@ -6,7 +6,7 @@
             <div
                class="force-top absolute bottom-0 flex w-full justify-center bg-black/20 p-4 text-sm text-white backdrop-blur-md"
             >
-               <NuxtLink class="" :to="localePath('map')">
+               <NuxtLink @click="goToMap">
                   <p>View on map</p>
                </NuxtLink>
             </div>
@@ -57,6 +57,19 @@ onMounted(() => {
       ])
       .addTo(map.value);
 });
+
+const goToMap = () => {
+   const localeRoute = useLocaleRoute();
+   const long = props.property.location.coordinates.longitude;
+   const lat = props.property.location.coordinates.latitude;
+   const route = localeRoute({
+      name: "map",
+      query: { lat, lng: long },
+   });
+   if (route) {
+      return navigateTo(route.fullPath);
+   }
+};
 </script>
 
 <style scoped>
