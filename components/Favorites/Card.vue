@@ -23,6 +23,7 @@
          </p>
       </div>
       <div
+         v-if="canRemove"
          class="absolute right-4 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-red-600 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
          @click="handleRemove"
       >
