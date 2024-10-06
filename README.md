@@ -1,75 +1,45 @@
-# Nuxt 3 Minimal Starter
+<img src="./public/images/logos/resin-white.svg" alt="logo" width="300px" style="margin-bottom: 1rem">
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Resin is an open-source real estate platform that helps users buy homes without relying on traditional bank loans. With a sleek, map-based interface, users can explore properties, view detailed listings, and discover alternative financing options — all in one place!
 
-## Setup
+## 🚀 Technologies Used
 
-Make sure to install the dependencies:
+This project is built using cutting-edge technologies to ensure scalability, maintainability, and ease of development:
 
-```bash
-# npm
-npm install
+-  **[Nuxt 3](https://nuxt.com/)** - The framework powering the entire app, built on Vue 3 and designed for both server-side and static site generation.
+-  **[TailwindCSS](https://tailwindcss.com/)** - Utility-first CSS framework for fast and responsive styling.
+-  **[Flowbite](https://flowbite.com/)** - Pre-built UI components for TailwindCSS to quickly build out user interfaces.
+-  **[MapLibre](https://maplibre.org/)** - Open-source map library for rendering maps and enhancing location-based searches.
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## 🛠️ How to Run the Project Locally
 
-# bun
-bun install
-```
+Follow these simple steps to get the project up and running on your local machine:
 
-## Development Server
+1. **Clone the repository:**
 
-Start the development server on `http://localhost:3000`:
+   ```bash
+   git clone https://github.com/yourusername/resin-app.git
+   cd resin-app
+   ```
 
-```bash
-# npm
-npm run dev
+2. **Install dependencies:**
 
-# pnpm
-pnpm run dev
+   Make sure you have [Node.js](https://nodejs.org/) installed. Then, run the following command:
 
-# yarn
-yarn dev
+   ```bash
+   npm install
+   ```
 
-# bun
-bun run dev
-```
+3. **Start the development server:**
 
-## Production
+   To start the local development server, run:
 
-Build the application for production:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-# npm
-npm run build
+4. **Open the app in your browser:**
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+   Navigate to `http://localhost:3000` to view the app running locally.
