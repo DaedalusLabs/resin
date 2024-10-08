@@ -3,7 +3,8 @@ export default defineI18nConfig(() => ({
    fallbackLocale: "en-US",
    messages: {
       "en-US": {
-         introductionTitle: "Rent to own without a loan",
+         rentToOwn: "Rent to own",
+         withoutALoan: "without a loan",
          introductionButton: "Create Account",
          signIn: "Log in with NOSTR",
          checkCountryAvailability: "Check country availability",

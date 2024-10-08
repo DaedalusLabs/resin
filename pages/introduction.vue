@@ -4,9 +4,14 @@
    >
       <NuxtImg src="/images/logos/resin-text.png" alt="Logo" class="h-10" />
       <div class="flex flex-col items-center justify-center gap-6">
-         <h1 class="text-center text-4xl font-bold leading-tight text-white">
-            {{ $t("introductionTitle") }}
-         </h1>
+         <div>
+            <h1 class="text-center text-4xl font-bold leading-tight text-white">
+               {{ $t("rentToOwn") }}
+            </h1>
+            <h1 class="text-center text-4xl font-bold text-white">
+               {{ $t("withoutALoan") }}
+            </h1>
+         </div>
 
          <NuxtLink :to="localePath('choose-property-type')">
             <FlowbiteButton
@@ -17,7 +22,8 @@
          </NuxtLink>
          <NuxtImg
             src="/icons/arrow.png"
-            class="absolute right-8 translate-y-6"
+            alt="Arrow"
+            class="absolute w-16 translate-x-36 translate-y-7"
          />
       </div>
       <div class="flex flex-col items-center justify-center gap-2">
