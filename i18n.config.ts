@@ -3,9 +3,9 @@ export default defineI18nConfig(() => ({
    fallbackLocale: "en-US",
    messages: {
       "en-US": {
-         buyHomeWithoutBank: "Buy a home without the bank",
-         getStarted: "Get started",
-         signIn: "Sign in",
+         introductionTitle: "Rent to own without a loan",
+         introductionButton: "Create Account",
+         signIn: "Log in with NOSTR",
          checkCountryAvailability: "Check country availability",
          propertyType: "What kind of property are you looking for?",
          propertyTypes: {
@@ -31,8 +31,8 @@ export default defineI18nConfig(() => ({
          details: "Details",
       },
       "nl-NL": {
-         buyHomeWithoutBank: "Koop een huis zonder de bank",
-         getStarted: "Aan de slag",
+         introductionTitle: "Koop een huis zonder de bank",
+         introductionButton: "Aan de slag",
          signIn: "Inloggen",
          checkCountryAvailability: "Controleer landbeschikbaarheid",
          propertyType: "Wat voor soort woning zoek je?",
