@@ -2,6 +2,7 @@
    <section
       class="flex h-full flex-col items-center justify-between px-12 py-20"
    >
+      <FlowbiteNostrModal v-if="isModalVisible" />
       <NuxtImg src="/images/logos/resin-text.png" alt="Logo" class="h-10" />
       <div class="flex flex-col items-center justify-center gap-6">
          <div>
@@ -13,13 +14,12 @@
             </h1>
          </div>
 
-         <NuxtLink :to="localePath('choose-property-type')">
-            <FlowbiteButton
-               class="px-5 py-3"
-               :text="$t('introductionButton')"
-               :show-icon="false"
-            />
-         </NuxtLink>
+         <FlowbiteButton
+            class="px-5 py-3"
+            :text="$t('introductionButton')"
+            :show-icon="false"
+            @click="openModal"
+         />
          <NuxtImg
             src="/icons/arrow.png"
             alt="Arrow"
@@ -43,7 +43,16 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 definePageMeta({
    layout: "intro",
 });
+
+const isModalVisible = ref(false);
+
+function openModal() {
+   console.log("here");
+   isModalVisible.value = true;
+}
 </script>
