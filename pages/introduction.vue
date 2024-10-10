@@ -3,6 +3,23 @@
       class="flex h-full flex-col items-center justify-between px-12 py-20"
    >
       <FlowbiteNostrModal v-if="isModalVisible" />
+      <FlowbiteModal ref="loginModal">
+         <template #title>Log in with NOSTR</template>
+         <p class="my-6 text-sm">
+            Choose an option below to access your account.
+         </p>
+         <div class="mt-4 flex w-full flex-col gap-4">
+            <FlowbiteBorderButton :text="`Use browser extension`" />
+            <FlowbiteBorderButton :text="`Use private key (NSEC)`" />
+            <FlowbiteBorderButton :text="`Use recovery phrase (12 words)`" />
+         </div>
+         <p class="mt-4 text-center text-xs">
+            Or <span class="text-resin-500">create a new account</span> if you
+            don't have one yet. Have questions?
+            <NuxtLink class="text-resin-500" to="#">Contact us</NuxtLink> for
+            assistance.
+         </p>
+      </FlowbiteModal>
       <NuxtImg src="/images/logos/resin-text.png" alt="Logo" class="h-10" />
       <div class="flex flex-col items-center justify-center gap-6">
          <div>
@@ -31,6 +48,7 @@
             :text="$t('signIn')"
             class="border border-pirate-400 bg-transparent px-3 py-3 font-normal text-pirate-50"
             :show-icon="false"
+            @click="openLoginModal"
          />
          <NuxtLink
             to="#"
@@ -55,4 +73,14 @@ function openModal() {
    console.log("here");
    isModalVisible.value = true;
 }
+
+const loginModal = ref(null);
+
+const openLoginModal = () => {
+   loginModal.value.open();
+};
+
+const closeModal = () => {
+   loginModal.value.close();
+};
 </script>
