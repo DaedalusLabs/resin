@@ -31,9 +31,6 @@
 </template>
 
 <script setup>
-import { watch } from "vue";
-import "vue3-touch-events";
-
 const props = defineProps({
    isOpen: {
       type: Boolean,
