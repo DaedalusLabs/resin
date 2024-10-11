@@ -7,6 +7,7 @@ export default defineI18nConfig(() => ({
          withoutALoan: "without a loan",
          introductionButton: "Create Account",
          signIn: "Log in with NOSTR",
+         logIn: "Log in",
          checkCountryAvailability: "Check country availability",
          propertyType: "What kind of property are you looking for?",
          propertyTypes: {

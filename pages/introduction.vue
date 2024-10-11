@@ -2,6 +2,43 @@
    <section
       class="flex h-full flex-col items-center justify-between px-12 py-20"
    >
+      <FlowbiteDrawer :is-open="showKeyDrawer" @close="showKeyDrawer = false">
+         <template #title> Log in with NOSTR private key </template>
+         <template #content>
+            <FlowbiteTextInput placeholder="Enter your Enter your nsec" />
+            <NuxtLink :to="localePath('properties')">
+               <FlowbiteButton
+                  :text="$t('logIn')"
+                  class="mt-4 flex w-full items-center justify-center px-5 py-3"
+                  :is-login="true"
+                  :show-icon="false"
+               />
+            </NuxtLink>
+         </template>
+      </FlowbiteDrawer>
+      <FlowbiteDrawer
+         :is-open="showPhraseDrawer"
+         @close="showPhraseDrawer = false"
+      >
+         <template #title> Log in with recovery phrase </template>
+         <template #content>
+            <form
+               class="grid grid-cols-2 gap-4"
+               action="#"
+               @submit.prevent="validateForm"
+            >
+               <FlowbiteTextInput v-for="i in 12" :key="i" :placeholder="i" />
+            </form>
+            <NuxtLink :to="localePath('properties')">
+               <FlowbiteButton
+                  :text="$t('logIn')"
+                  class="mt-4 flex w-full items-center justify-center px-5 py-3"
+                  :is-login="true"
+                  :show-icon="false"
+               />
+            </NuxtLink>
+         </template>
+      </FlowbiteDrawer>
       <FlowbiteNostrModal v-if="isModalVisible" />
       <FlowbiteModal ref="loginModal">
          <template #title>Log in with NOSTR</template>
@@ -10,8 +47,14 @@
          </p>
          <div class="mt-4 flex w-full flex-col gap-4">
             <FlowbiteBorderButton :text="`Use browser extension`" />
-            <FlowbiteBorderButton :text="`Use private key (NSEC)`" />
-            <FlowbiteBorderButton :text="`Use recovery phrase (12 words)`" />
+            <FlowbiteBorderButton
+               :text="`Use private key (NSEC)`"
+               @click="openDrawer"
+            />
+            <FlowbiteBorderButton
+               :text="`Use recovery phrase (12 words)`"
+               @click="openPhraseDrawer"
+            />
          </div>
          <p class="mt-4 text-center text-xs">
             Or <span class="text-resin-500">create a new account</span> if you
@@ -67,20 +110,30 @@ definePageMeta({
    layout: "intro",
 });
 
+const showKeyDrawer = ref(false);
+const showPhraseDrawer = ref(false);
 const isModalVisible = ref(false);
+const loginModal = ref(null);
 
-function openModal() {
-   console.log("here");
-   isModalVisible.value = true;
+function openDrawer() {
+   showKeyDrawer.value = true;
+   loginModal.value.close();
 }
 
-const loginModal = ref(null);
+function openPhraseDrawer() {
+   showPhraseDrawer.value = true;
+   loginModal.value.close();
+}
+
+function openModal() {
+   isModalVisible.value = true;
+}
 
 const openLoginModal = () => {
    loginModal.value.open();
 };
 
-const closeModal = () => {
-   loginModal.value.close();
+const validateForm = () => {
+   console.log("Form submitted");
 };
 </script>

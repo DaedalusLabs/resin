@@ -11,7 +11,7 @@
          <div class="flex min-h-screen items-center justify-center">
             <!-- Background overlay -->
             <div
-               class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+               class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"
                aria-hidden="true"
                @click="close"
             />
