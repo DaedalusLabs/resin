@@ -18,7 +18,7 @@
 
             <!-- Modal panel -->
             <div
-               class="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
+               class="inline-block w-11/12 transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle"
             >
                <div class="bg-white p-6">
                   <div class="sm:flex sm:items-start">

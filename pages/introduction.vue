@@ -2,6 +2,7 @@
    <section
       class="flex h-full flex-col items-center justify-between px-12 py-20"
    >
+      <!-- Overlays -->
       <IntroductionLoginModal
          :show="showLoginModal"
          @close="showLoginModal = false"
@@ -11,6 +12,8 @@
       <FlowbiteNostrModal v-if="showRegisterModal" />
       <IntroductionNsecDrawer :show-nsec-drawer="showNsecDrawer" />
       <IntroductionPhraseDrawer :show-phrase-drawer="showPhraseDrawer" />
+
+      <!-- Main page layout -->
       <NuxtImg src="/images/logos/resin-text.png" alt="Logo" class="h-10" />
       <div class="flex flex-col items-center justify-center gap-6">
          <div>
@@ -22,7 +25,6 @@
             </h1>
          </div>
 
-         <!-- Register Modal Button -->
          <FlowbiteButton
             class="px-5 py-3"
             :text="$t('introductionButton')"
@@ -36,7 +38,6 @@
          />
       </div>
 
-      <!-- Sign In Modal Button -->
       <div class="flex flex-col items-center justify-center gap-2">
          <FlowbiteButton
             :text="$t('signIn')"
@@ -69,8 +70,8 @@ const openLoginModal = () => {
 };
 
 const openNsecDrawer = () => {
-   showNsecDrawer.value = true;
    showLoginModal.value = false;
+   showNsecDrawer.value = true;
 };
 
 const openPhraseDrawer = () => {

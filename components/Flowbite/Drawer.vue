@@ -31,31 +31,16 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
    isOpen: {
       type: Boolean,
       default: false,
    },
 });
 
-const swipeHandler = () => {
-   close();
-};
-
 const emit = defineEmits(["close"]);
 
 const close = () => {
    emit("close");
 };
-
-watch(
-   () => props.isOpen,
-   (newValue) => {
-      if (newValue) {
-         document.body.style.overflow = "hidden";
-      } else {
-         document.body.style.overflow = "";
-      }
-   },
-);
 </script>

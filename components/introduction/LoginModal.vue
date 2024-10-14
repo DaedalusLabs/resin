@@ -33,17 +33,13 @@ const props = defineProps({
    show: Boolean,
 });
 
-const openLoginModal = () => {
-   if (loginModal.value) {
-      loginModal.value.open();
-   } else {
-      loginModal.value.close();
-   }
-};
-
 watchEffect(() => {
-   if (props.show) {
-      openLoginModal();
+   if (loginModal.value != null) {
+      if (props.show) {
+         loginModal.value.open();
+      } else {
+         loginModal.value.close();
+      }
    }
 });
 </script>
