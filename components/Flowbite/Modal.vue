@@ -3,7 +3,7 @@
    <Teleport to="body">
       <div
          v-if="isOpen"
-         class="fixed inset-0 z-50 overflow-y-auto"
+         class="fixed inset-0 z-20 overflow-y-auto"
          aria-labelledby="modal-title"
          role="dialog"
          aria-modal="true"
@@ -66,6 +66,8 @@
 <script setup>
 import { ref } from "vue";
 
+const emit = defineEmits(["close"]);
+
 const isOpen = ref(false);
 
 const open = () => {
@@ -74,6 +76,7 @@ const open = () => {
 
 const close = () => {
    isOpen.value = false;
+   emit("close");
 };
 
 defineExpose({ open, close });

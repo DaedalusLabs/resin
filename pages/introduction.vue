@@ -5,7 +5,7 @@
       <!-- Overlays -->
       <IntroductionLoginModal
          :show="showLoginModal"
-         @close="showLoginModal = false"
+         @close="handleCloseModal"
          @open-nsec-drawer="openNsecDrawer"
          @open-phrase-drawer="openPhraseDrawer"
       />
@@ -76,13 +76,11 @@ const openLoginModal = () => {
 };
 
 const openNsecDrawer = () => {
-   showLoginModal.value = false;
    showNsecDrawer.value = true;
 };
 
 const openPhraseDrawer = () => {
    showPhraseDrawer.value = true;
-   showLoginModal.value = false;
 };
 
 const openRegisterModal = () => {
@@ -93,5 +91,10 @@ const handleCloseDrawer = () => {
    showNsecDrawer.value = false;
    showPhraseDrawer.value = false;
    showLoginModal.value = true;
+};
+
+const handleCloseModal = () => {
+   showLoginModal.value = false;
+   showRegisterModal.value = false;
 };
 </script>

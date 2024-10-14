@@ -1,9 +1,15 @@
 <template>
-   <FlowbiteModal ref="loginModal" @close="$emit('close')">
+   <FlowbiteModal ref="loginModal" @close="handleCloseModal">
       <template #title>Log in with NOSTR</template>
       <p class="my-6 text-sm">Choose an option below to access your account.</p>
       <div class="mt-4 flex w-full flex-col gap-4">
-         <FlowbiteBorderButton :text="`Use browser extension`" />
+         <NuxtLink :to="localePath('properties')" class="block">
+            <FlowbiteBorderButton
+               :text="`Use browser extension`"
+               class="w-full"
+            />
+         </NuxtLink>
+
          <FlowbiteBorderButton
             :text="`Use private key (NSEC)`"
             @click="emit('openNsecDrawer')"
@@ -32,6 +38,10 @@ const emit = defineEmits(["openNsecDrawer", "openPhraseDrawer", "close"]);
 const props = defineProps({
    show: Boolean,
 });
+
+const handleCloseModal = () => {
+   emit("close");
+};
 
 watchEffect(() => {
    if (loginModal.value != null) {
