@@ -5,7 +5,7 @@
          :show-toast="wrongPhrase"
          @close-toast="wrongPhrase = false"
       />
-      <FlowbiteDrawer :is-open="showDrawer" @close="showDrawer = false">
+      <FlowbiteDrawer :is-open="showDrawer" @close="handleCloseDrawer">
          <template #title> Log in with recovery phrase </template>
          <template #content>
             <form action="#" method="POST" @submit.prevent="validatePhrase">
@@ -68,4 +68,11 @@ watchEffect(() => {
       errorMessages.value = [];
    }
 });
+
+const emit = defineEmits(["close"]);
+
+const handleCloseDrawer = () => {
+   showDrawer.value = false;
+   emit("close");
+};
 </script>

@@ -5,13 +5,7 @@
          :show-toast="wrongNsec"
          @close-toast="wrongNsec = false"
       />
-      <FlowbiteDrawer
-         :is-open="showDrawer"
-         @close="
-            showDrawer = false;
-            errorMessages.value = [];
-         "
-      >
+      <FlowbiteDrawer :is-open="showDrawer" @close="handleCloseNsecDrawer">
          <template #title> Log in with NOSTR private key </template>
          <template #content>
             <form action="#" method="POST" @submit.prevent="validateKey">
@@ -44,6 +38,8 @@ const wrongNsec = ref(false);
 
 const errorMessages = ref([]);
 
+const emit = defineEmits(["close"]);
+
 const validateKey = () => {
    if (!isNsecFilled.value) {
       errorMessages.value.push("Please fill in your Nsec key");
@@ -59,6 +55,11 @@ const validateKey = () => {
          return navigateTo(route.fullPath);
       }
    }
+};
+
+const handleCloseNsecDrawer = () => {
+   showDrawer.value = false;
+   emit("close");
 };
 
 const props = defineProps({

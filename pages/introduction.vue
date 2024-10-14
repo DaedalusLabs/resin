@@ -10,8 +10,14 @@
          @open-phrase-drawer="openPhraseDrawer"
       />
       <FlowbiteNostrModal v-if="showRegisterModal" />
-      <IntroductionNsecDrawer :show-nsec-drawer="showNsecDrawer" />
-      <IntroductionPhraseDrawer :show-phrase-drawer="showPhraseDrawer" />
+      <IntroductionNsecDrawer
+         :show-nsec-drawer="showNsecDrawer"
+         @close="handleCloseDrawer"
+      />
+      <IntroductionPhraseDrawer
+         :show-phrase-drawer="showPhraseDrawer"
+         @close="handleCloseDrawer"
+      />
 
       <!-- Main page layout -->
       <NuxtImg src="/images/logos/resin-text.png" alt="Logo" class="h-10" />
@@ -81,5 +87,11 @@ const openPhraseDrawer = () => {
 
 const openRegisterModal = () => {
    showRegisterModal.value = true;
+};
+
+const handleCloseDrawer = () => {
+   showNsecDrawer.value = false;
+   showPhraseDrawer.value = false;
+   showLoginModal.value = true;
 };
 </script>
