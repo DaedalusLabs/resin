@@ -1,5 +1,7 @@
 <template>
-   <section class="relative flex h-full flex-col items-center justify-between">
+   <section
+      class="relative flex h-full flex-col items-center justify-between overflow-hidden"
+   >
       <TopBar
          class="force-top absolute left-0 right-0 top-0 px-5 pt-10"
          @update:map-center="updateMapCenter"

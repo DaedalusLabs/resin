@@ -1,8 +1,10 @@
 <template>
    <button
       type="button"
-      class="inline-flex items-center rounded-lg bg-resin-500 px-4 py-2 text-center text-sm font-medium text-white hover:bg-resin-600 focus:outline-none focus:ring-4 focus:ring-pirate-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      class="inline-flex items-center rounded-lg bg-resin-500 px-4 py-2 text-center text-sm font-medium text-white hover:bg-resin-600 focus:outline-none"
    >
+      <PhSignIn v-if="isLogin" :size="24" class="mr-3" />
+
       {{ text }}
 
       <svg
@@ -25,10 +27,16 @@
 </template>
 
 <script setup>
+import { PhSignIn } from "@phosphor-icons/vue";
+
 defineProps({
    text: {
       type: String,
       required: true,
+   },
+   isLogin: {
+      type: Boolean,
+      default: false,
    },
    showIcon: {
       type: Boolean,
