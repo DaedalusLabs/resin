@@ -75,5 +75,19 @@ export const usePropertiesStore = defineStore("properties", {
       isFavorite(locationId) {
          return this.favorites.includes(locationId);
       },
+      findPropertyBySearchQuery(searchTerm) {
+         const [street, city, country] = searchTerm.split(", ");
+
+         return this.properties.find((property) => {
+            return (
+               property.location.address.street.toLowerCase() ===
+                  street.toLowerCase() &&
+               property.location.address.city.toLowerCase() ===
+                  city.toLowerCase() &&
+               property.location.address.country.toLowerCase() ===
+                  country.toLowerCase()
+            );
+         });
+      },
    },
 });
