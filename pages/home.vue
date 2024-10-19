@@ -14,6 +14,7 @@
             />
          </div>
          <TopBarDropdown
+            class="absolute z-10"
             :filtered-suggestions="filteredSuggestions"
             :query="query"
             @update:query="updateQuery"
