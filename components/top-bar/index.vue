@@ -15,7 +15,11 @@
             :query="query"
             @update:query="updateQuery"
          />
-         <FlowbiteIconButton icon="filter" description="filter properties" />
+         <FlowbiteIconButton
+            icon="filter"
+            description="filter properties"
+            @click="emits('toggle-filters')"
+         />
       </div>
       <TopBarDropdown
          :filtered-suggestions="filteredSuggestions"
@@ -34,7 +38,7 @@ const query = ref("");
 const mapCenter = ref(null);
 const suggestions = propertiesStore.properties;
 
-const emits = defineEmits(["update:map-center"]);
+const emits = defineEmits(["update:map-center", "toggle-filters"]);
 
 const filteredSuggestions = computed(() => {
    if (!query.value) return [];

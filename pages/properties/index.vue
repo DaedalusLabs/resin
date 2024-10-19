@@ -1,9 +1,16 @@
 <template>
    <div>
+      <FlowbiteFilterDrawer
+         :show-drawer="showFilterDrawer"
+         @close="showFilterDrawer = false"
+      />
       <div
          class="mx-auto flex w-11/12 flex-col items-center justify-center gap-8"
       >
-         <TopBar class="mt-10" />
+         <TopBar
+            class="mt-10"
+            @toggle-filters="showFilterDrawer = !showFilterDrawer"
+         />
          <div
             v-if="isLoading"
             class="flex w-full flex-col items-center justify-center gap-4"
@@ -31,6 +38,7 @@
 import { usePropertiesStore } from "~/stores/properties";
 const isLoading = ref(true);
 const properties = ref([]);
+const showFilterDrawer = ref(false);
 
 onMounted(() => {
    setTimeout(() => {
