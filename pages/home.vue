@@ -30,7 +30,7 @@
          <HomeRecentSearch
             v-for="search in searches"
             :key="search"
-            class="w-1/2 flex-shrink-0"
+            class="w-1/2 flex-shrink-0 cursor-pointer"
             :search="search"
             @click="searchProperties(search)"
          />
@@ -45,7 +45,7 @@
          <FavoritesCard
             v-for="property in viewedProperties"
             :key="property"
-            class="flex-shrink-0"
+            class="flex-shrink-0 cursor-pointer"
             :property="property"
          />
       </div>
