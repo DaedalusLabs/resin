@@ -266,8 +266,46 @@ async function getProperties() {
    ];
 }
 
+async function getTrendingAreas() {
+   return [
+      {
+         id: 1,
+         name: "Nantes",
+         city: "Nantes",
+         country: "France",
+         image: "/images/mock/area.png",
+         price: 1200,
+      },
+      {
+         id: 2,
+         name: "Bordeaux",
+         city: "Bordeaux",
+         country: "France",
+         image: "/images/mock/area.png",
+         price: 1300,
+      },
+      {
+         id: 3,
+         name: "Lyon",
+         city: "Lyon",
+         country: "France",
+         image: "/images/mock/area.png",
+         price: 1100,
+      },
+      {
+         id: 4,
+         name: "Paris",
+         city: "Paris",
+         country: "France",
+         image: "/images/mock/area.png",
+         price: 1500,
+      },
+   ];
+}
+
 propertiesStore.properties = await getProperties();
 propertiesStore.filteredProperties = propertiesStore.properties;
+propertiesStore.trendingAreas = await getTrendingAreas();
 </script>
 
 <style>

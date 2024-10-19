@@ -52,6 +52,9 @@ const isRemoving = ref(false);
 const emit = defineEmits(["remove"]);
 
 const swipeHandler = () => {
+   if (!props.isRemovable) {
+      return;
+   }
    isRemoving.value = true;
    setTimeout(() => {
       emit("remove");
@@ -77,6 +80,10 @@ const props = defineProps({
    property: {
       type: Object,
       required: true,
+   },
+   isRemovable: {
+      type: Boolean,
+      default: false,
    },
 });
 </script>
