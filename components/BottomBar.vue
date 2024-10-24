@@ -62,7 +62,7 @@ const isFavoritesView = ref(false);
 const isProfileView = ref(false);
 watchEffect(() => {
    isListView.value = route.path.includes("properties");
-   isHomeView.value = route.path === "/";
+   isHomeView.value = route.path.includes("home");
    isResinView.value = route.path.includes("resin");
    isFavoritesView.value = route.path.includes("favorites");
    isProfileView.value = route.path.includes("profile");
