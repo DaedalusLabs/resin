@@ -3,7 +3,7 @@ use resin_front::{
         chat_provider::ResinChatProvider, loading_provider::LoadingCtxProvider,
         provider::ListingDataProvider, user_data::ResinUserProvider,
     },
-    router::ResinPages,
+    router::{ResinPages, PwaInstall},
 };
 use yew::prelude::*;
 use yew_router::BrowserRouter;
@@ -15,13 +15,16 @@ fn main() {
 #[function_component(App)]
 fn app() -> Html {
     html! {
-        <BrowserRouter>
-            <AppProviders>
-                <LoadingCtxProvider>
-                    <ResinPages />
-                </LoadingCtxProvider>
-            </AppProviders>
-        </BrowserRouter>
+        <>
+            <PwaInstall />
+            <BrowserRouter>
+                <AppProviders>
+                    <LoadingCtxProvider>
+                        <ResinPages />
+                    </LoadingCtxProvider>
+                </AppProviders>
+            </BrowserRouter>
+        </>
     }
 }
 
