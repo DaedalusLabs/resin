@@ -1,6 +1,9 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
-use lucide_yew::{X};
+use yew::platform::spawn_local;
+use lucide_yew::{X, Download};
+use web_sys::wasm_bindgen::JsCast;
+use nostr_minions::browser_api::BeforeInstallPromptEvent;
 
 use crate::{
     components::{modal::Modal, settings::SettingsPageTemplate},
@@ -260,5 +263,79 @@ fn settings_drawer() -> Html {
                 <FrequentlyAskedQuestions />
             </Modal>
         </>
+    }
+}
+
+#[function_component(PwaInstall)]
+pub fn pwa_install() -> Html {
+    let is_installable = use_state(|| None);
+    let is_installed = use_state(|| false);
+
+    let is_installable_handle = is_installable.clone();
+    let is_installed_handle = is_installed.clone();
+    use_effect_with((), move |()| {
+        let window = web_sys::window().expect("No window found");
+        let handle_clone = is_installable_handle.clone();
+        let callback: web_sys::js_sys::Function = web_sys::wasm_bindgen::closure::Closure::wrap(
+            Box::new(move |e: BeforeInstallPromptEvent| {
+                handle_clone.set(Some(e));
+            }) as Box<dyn FnMut(_)>,
+        )
+        .into_js_value()
+        .unchecked_into();
+        window
+            .add_event_listener_with_callback("beforeinstallprompt", &callback)
+            .expect("Failed to add event listener");
+        if let Ok(Some(media_match)) = window.match_media("(display-mode: standalone)") {
+            if media_match.matches() {
+                is_installed_handle.set(true);
+            }
+        };
+        || {}
+    });
+    let install_event = is_installable.clone();
+    let on_install = Callback::from(move |_| {
+        let install_event = (*install_event).as_ref().expect("No install event found");
+        let promise = install_event.prompt();
+        let handle = wasm_bindgen_futures::JsFuture::from(promise);
+        spawn_local(async move {
+            let _ = handle.await;
+        });
+    });
+
+    let is_installable_handle = is_installable.clone();
+    let is_installed_handle = is_installed.clone();
+    let handle_dismiss = Callback::from(move |_| {
+        is_installable_handle.set(None);
+        is_installed_handle.set(true);
+    });
+    
+    if is_installable.is_some() && !(*is_installed) {
+        html! {
+            <div class="fixed bottom-12 md:bottom-16 right-4 z-[999]">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-bitcoin-orange rounded-full blur-md animate-pulse"></div>
+                    <div class="relative bg-bitcoin-orange rounded-full shadow-lg p-1">
+                        <div class="flex items-center space-x-2">
+                            <button
+                                class="text-white font-bold py-2 px-4 rounded-full flex items-center space-x-2 transition-all duration-300 cursor-pointer"
+                                onclick={on_install}
+                            >
+                                <Download class="w-5 h-5" />
+                                <span>{"Install App"}</span>
+                            </button>
+                            <button
+                                class="text-white p-2 rounded-full transition-all duration-300 cursor-pointer"
+                                onclick={handle_dismiss}
+                                >
+                                <X class="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    } else {
+        html! {}
     }
 }

@@ -1956,6 +1956,7 @@ dependencies = [
  "nostro2-signer",
  "resin-core",
  "wasm-bindgen",
+ "wasm-bindgen-futures",
  "web-sys",
  "yew",
  "yew-router",

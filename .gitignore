@@ -5,3 +5,4 @@ target/
 /**/dist/
 .DS_Store
 .ansible
+/**/public/**/*.png

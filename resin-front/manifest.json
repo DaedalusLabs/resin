@@ -12,12 +12,12 @@
             "src": "/public/screenshot1.png",
             "sizes": "640x320",
             "type": "image/png",
-            "label": "Resin Introduction"
+            "label": "Wioso Introduction"
         }
-   ],
+    ],
     "icons": [
         {
-            "src": "/public/BrandIcon_RESIN.png",
+            "src": "/public/logo.png",
             "sizes": "any"
         }
     ]
